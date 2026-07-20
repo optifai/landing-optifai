@@ -87,7 +87,7 @@ export function MobileMenu({ open, onClose, triggerRef }: MobileMenuProps) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 min-[1400px]:hidden">
+    <div className="fixed inset-0 z-50 xl:hidden">
       <button
         type="button"
         aria-label={t("closeMenu")}
@@ -111,7 +111,7 @@ export function MobileMenu({ open, onClose, triggerRef }: MobileMenuProps) {
             type="button"
             onClick={onClose}
             aria-label={t("closeMenu")}
-            className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:text-fg"
+            className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
           >
             <X aria-hidden="true" className="size-5" />
           </button>
@@ -140,9 +140,13 @@ export function MobileMenu({ open, onClose, triggerRef }: MobileMenuProps) {
         <Link
           href={`/#${SECTION_IDS.contact}`}
           onClick={onClose}
-          className={buttonClasses("primary", "lg", "mt-6 w-full")}
+          className={buttonClasses(
+            "primary",
+            "sm",
+            "mt-6 min-h-[42px] w-full px-4",
+          )}
         >
-          {tCta("primary")}
+          {tCta("header")}
         </Link>
 
         <div className="mt-6 flex items-center justify-between gap-3 border-t border-line pt-6">

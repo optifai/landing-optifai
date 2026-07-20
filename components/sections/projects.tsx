@@ -63,9 +63,9 @@ export function Projects() {
                       {project.image ? (
                         <Image
                           src={project.image}
-                          alt={t("imageAlt", { name })}
+                          alt={t(`${base}.imageAlt`)}
                           fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          sizes="(max-width: 767px) calc(100vw - 2.5rem), (max-width: 1023px) calc(50vw - 2.5rem), (max-width: 1279px) calc(33vw - 2rem), 410px"
                           className="object-cover object-top"
                         />
                       ) : (

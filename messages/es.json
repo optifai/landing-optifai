@@ -11,9 +11,6 @@
     "services": "Servicios",
     "process": "Proceso",
     "projects": "Proyectos",
-    "testimonials": "Testimonios",
-    "clients": "Clientes",
-    "benefits": "Por qué OptifAI",
     "about": "Nosotros",
     "faq": "FAQ",
     "contact": "Contacto",
@@ -42,6 +39,7 @@
   },
 
   "cta": {
+    "header": "Hablemos de tu proyecto",
     "primary": "Contanos sobre tu proyecto",
     "budget": "Solicitar presupuesto",
     "call": "Agendar una llamada",
@@ -210,7 +208,7 @@
   "projects": {
     "eyebrow": "Proyectos",
     "title": "Trabajos y tipos de proyecto",
-    "subtitle": "Proyectos publicados con autorización y formatos pendientes claramente identificados.",
+    "subtitle": "Proyectos publicados con autorización.",
     "placeholderBadge": "Ejemplo ilustrativo",
     "placeholderNotice": "Los proyectos identificados como ejemplos son formatos de referencia y no corresponden a clientes reales.",
     "clientLabel": "Cliente",
@@ -219,29 +217,31 @@
     "solutionLabel": "Enfoque",
     "resultLabel": "Resultado",
     "techLabel": "Tecnologías",
-    "imageAlt": "Captura de {name}",
     "visitSite": "Ver sitio",
     "viewRepo": "Ver repositorio",
     "categories": {
-      "management": "Sistema de gestión",
+      "management": "Sistema a medida",
       "landing": "Landing page",
       "ecommerce": "Tienda online"
     },
     "items": {
       "af-hub-negocios": {
         "name": "AF | HUB de Negocios",
+        "imageAlt": "Captura del sitio de AF | HUB de Negocios",
         "problem": "Landing page pública de AF | HUB de Negocios.",
         "solution": "Presentación institucional del hub, sus unidades y sus vías de contacto."
       },
       "platinum-joyas": {
         "name": "Platinum Joyas",
+        "imageAlt": "Captura de la tienda online de Platinum Joyas",
         "problem": "Tienda online pública de Platinum Joyas.",
         "solution": "Catálogo de joyas con colecciones, productos y experiencia de compra online."
       },
-      "sample-management": {
-        "name": "Sistema a medida",
-        "problem": "Un equipo administra pedidos, clientes y stock en planillas separadas, con datos que se duplican y se desactualizan.",
-        "solution": "Un panel único donde se cargan pedidos, se consulta stock y se generan reportes, con permisos por rol y registro de cambios."
+      "af-functional-training": {
+        "name": "AF | Functional Training",
+        "imageAlt": "Dashboard del sistema de gestión de AF | Functional Training",
+        "problem": "Sistema de gestión a medida para gimnasio.",
+        "solution": "Sistema desarrollado a medida para centralizar la gestión operativa de un gimnasio."
       }
     },
     "cta": {

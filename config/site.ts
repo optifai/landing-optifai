@@ -6,9 +6,6 @@
  * should hardcode a phone number, an email or a URL.
  */
 
-/** Raw local number as it is written in Paraguay. */
-const WHATSAPP_LOCAL = "0981507887";
-
 /**
  * International format used for wa.me links (Paraguay country code 595,
  * leading 0 of the local number removed).
@@ -19,6 +16,12 @@ const WHATSAPP_INTERNATIONAL =
 const INSTAGRAM_USERNAME = "optifai";
 
 const CONTACT_EMAIL = "optifaipartnetship@gmail.com";
+
+/** Formats the configured Paraguayan number for human-readable contact copy. */
+function formatPhone(number: string): string {
+  const match = number.match(/^(595)(\d{3})(\d{3})(\d{3})$/);
+  return match ? `+${match[1]} ${match[2]} ${match[3]} ${match[4]}` : `+${number}`;
+}
 
 export const siteConfig = {
   name: "OptifAI",
@@ -34,7 +37,9 @@ export const siteConfig = {
   contact: {
     email: CONTACT_EMAIL,
     /** Displayed to humans. */
-    whatsappDisplay: WHATSAPP_LOCAL,
+    whatsappDisplay: formatPhone(WHATSAPP_INTERNATIONAL),
+    /** Used for regular telephone links. */
+    phoneE164: `+${WHATSAPP_INTERNATIONAL}`,
     /** Used to build the wa.me deep link. */
     whatsappInternational: WHATSAPP_INTERNATIONAL,
     instagramUsername: INSTAGRAM_USERNAME,
@@ -62,8 +67,8 @@ export const siteConfig = {
    * the real assets are in place; the UI adapts automatically.
    */
   pending: {
-    /** At least one portfolio entry is still an illustrative placeholder. */
-    projectsArePlaceholder: true,
+    /** Every published portfolio entry currently represents real work. */
+    projectsArePlaceholder: false,
     /** No real testimonials collected yet. */
     testimonialsArePlaceholder: true,
   },
@@ -99,9 +104,6 @@ export const NAV_SECTIONS: SectionId[] = [
   SECTION_IDS.services,
   SECTION_IDS.process,
   SECTION_IDS.projects,
-  SECTION_IDS.testimonials,
-  SECTION_IDS.clients,
-  SECTION_IDS.benefits,
   SECTION_IDS.about,
   SECTION_IDS.faq,
   SECTION_IDS.contact,
@@ -114,3 +116,4 @@ export function buildWhatsAppUrl(message: string): string {
 }
 
 export const mailtoUrl = `mailto:${siteConfig.contact.email}`;
+export const telUrl = `tel:${siteConfig.contact.phoneE164}`;

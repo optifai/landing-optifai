@@ -37,7 +37,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             // the highlight alone.
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "grid min-h-8 min-w-9 place-items-center rounded-[0.4rem] px-2 text-xs font-semibold transition-colors duration-150",
+              "grid min-h-10 min-w-10 place-items-center rounded-[0.4rem] px-2 text-xs font-semibold transition-colors duration-150",
               isActive
                 ? "bg-surface text-primary shadow-card"
                 : "text-fg-subtle hover:text-fg",

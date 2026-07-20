@@ -1,10 +1,7 @@
 import type { Project } from "@/types";
 
 /**
- * Verifiable projects and explicitly labelled pending entries.
- *
- * The two entries with screenshots are public projects. The custom system has
- * no URL or capture yet, so it remains an illustrative placeholder.
+ * Verifiable projects and support for explicitly labelled pending entries.
  *
  * To publish a real case study:
  *   1. Set `client` to the real client name (or leave "" if not authorised).
@@ -18,8 +15,8 @@ import type { Project } from "@/types";
  *   6. Add an optional `result` key next to them for a verified outcome —
  *      only if it is a real, measurable figure.
  *
- * Once every entry has `isPlaceholder: false`, also set
- * `siteConfig.pending.projectsArePlaceholder` to `false` in `config/site.ts`.
+ * If any entry is pending, keep `siteConfig.pending.projectsArePlaceholder`
+ * aligned with the data in `config/site.ts`.
  */
 export const projects: Project[] = [
   {
@@ -45,14 +42,14 @@ export const projects: Project[] = [
     isPlaceholder: false,
   },
   {
-    id: "sample-management",
-    client: "",
+    id: "af-functional-training",
+    client: "AF | Functional Training",
     category: "management",
-    image: null,
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    image: "/projects/af-functional-training.webp",
+    technologies: [],
     featured: false,
     order: 3,
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
 ];
 

@@ -11,10 +11,7 @@
     "services": "Services",
     "process": "Process",
     "projects": "Projects",
-    "testimonials": "Testimonials",
-    "clients": "Clients",
-    "benefits": "Why OptifAI",
-    "about": "About",
+    "about": "About us",
     "faq": "FAQ",
     "contact": "Contact",
     "openMenu": "Open navigation menu",
@@ -42,6 +39,7 @@
   },
 
   "cta": {
+    "header": "Let’s talk about your project",
     "primary": "Tell us about your project",
     "budget": "Request a quote",
     "call": "Book a call",
@@ -210,7 +208,7 @@
   "projects": {
     "eyebrow": "Projects",
     "title": "Work and project types",
-    "subtitle": "Projects published with permission and pending formats clearly identified.",
+    "subtitle": "Projects published with permission.",
     "placeholderBadge": "Illustrative example",
     "placeholderNotice": "Projects identified as examples are reference formats and do not correspond to real clients.",
     "clientLabel": "Client",
@@ -219,29 +217,31 @@
     "solutionLabel": "Approach",
     "resultLabel": "Outcome",
     "techLabel": "Technologies",
-    "imageAlt": "Screenshot of {name}",
     "visitSite": "Visit site",
     "viewRepo": "View repository",
     "categories": {
-      "management": "Management system",
+      "management": "Custom system",
       "landing": "Landing page",
       "ecommerce": "Online store"
     },
     "items": {
       "af-hub-negocios": {
         "name": "AF | HUB de Negocios",
+        "imageAlt": "AF | HUB de Negocios website screenshot",
         "problem": "Public landing page for AF | HUB de Negocios.",
         "solution": "An institutional presentation of the hub, its business units and contact channels."
       },
       "platinum-joyas": {
         "name": "Platinum Joyas",
+        "imageAlt": "Platinum Joyas online store screenshot",
         "problem": "Public online store for Platinum Joyas.",
         "solution": "A jewellery catalogue with collections, products and an online shopping experience."
       },
-      "sample-management": {
-        "name": "Custom system",
-        "problem": "A team tracks orders, customers and stock across separate spreadsheets, with data that gets duplicated and goes stale.",
-        "solution": "A single dashboard for entering orders, checking stock and generating reports, with role-based permissions and a change log."
+      "af-functional-training": {
+        "name": "AF | Functional Training",
+        "imageAlt": "AF | Functional Training management system dashboard",
+        "problem": "Custom management system for a gym.",
+        "solution": "Custom-built system designed to centralize a gym’s operational management."
       }
     },
     "cta": {

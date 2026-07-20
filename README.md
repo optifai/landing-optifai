@@ -177,10 +177,10 @@ También conviene actualizar el favicon:
 
 Editá **`data/projects.ts`**.
 
-Las tres entradas actuales están marcadas con `isPlaceholder: true` y la
-interfaz las etiqueta visiblemente como **"Ejemplo ilustrativo"**, además de
-mostrar un aviso arriba de la grilla. Ningún visitante ve trabajo inventado como
-si fuera real.
+Las tres entradas actuales representan proyectos reales y están marcadas con
+`isPlaceholder: false`. La interfaz conserva soporte para borradores: cualquier
+entrada futura con `isPlaceholder: true` se etiqueta como **"Ejemplo
+ilustrativo"** y activa un aviso arriba de la grilla.
 
 Para publicar un caso real:
 

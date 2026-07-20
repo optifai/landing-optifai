@@ -80,12 +80,12 @@ export function Header() {
             aria-label={t("home")}
             className="shrink-0 rounded-md"
           >
-            <Logo />
+            <Logo variant="responsive" />
           </Link>
 
           <nav
             aria-label={t("primary")}
-            className="hidden min-[1400px]:flex min-[1400px]:items-center"
+            className="hidden xl:flex xl:items-center"
           >
             {NAV_SECTIONS.map((id) => (
               <Link
@@ -118,10 +118,10 @@ export function Header() {
                 className={buttonClasses(
                   "primary",
                   "sm",
-                  "whitespace-nowrap",
+                  "min-h-[42px] whitespace-nowrap px-4",
                 )}
               >
-                {tCta("primary")}
+                {tCta("header")}
               </Link>
             </div>
 
@@ -131,7 +131,7 @@ export function Header() {
               onClick={() => setMenuOpen(true)}
               aria-label={t("openMenu")}
               aria-expanded={menuOpen}
-              className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:text-fg min-[1400px]:hidden"
+              className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:border-line-strong hover:text-fg xl:hidden"
             >
               <Menu aria-hidden="true" className="size-5" />
             </button>

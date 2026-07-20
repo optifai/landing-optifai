@@ -43,7 +43,11 @@ export function Contact() {
   ] as const;
 
   return (
-    <Section id={SECTION_IDS.contact} tone="subtle">
+    <Section
+      id={SECTION_IDS.contact}
+      tone="subtle"
+      className="pb-16 md:pb-20"
+    >
       <SectionHeader
         eyebrow={t("eyebrow")}
         title={t("title")}

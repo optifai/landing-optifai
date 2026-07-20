@@ -49,7 +49,7 @@ export function ThemeToggle({ className }: { className?: string }) {
             title={t(labelKey)}
             onClick={() => setTheme(value)}
             className={cn(
-              "grid size-8 place-items-center rounded-[0.4rem] transition-colors duration-150",
+              "grid size-10 place-items-center rounded-[0.4rem] transition-colors duration-150",
               checked
                 ? "bg-surface text-primary shadow-card"
                 : "text-fg-subtle hover:text-fg",

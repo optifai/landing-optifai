@@ -1,24 +1,28 @@
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 
+type LogoVariant = "horizontal" | "symbol" | "responsive";
+
 /**
- * TEMPORARY LOGO — text based, no image asset required.
- *
- * To swap in the final logo, replace the `<span aria-hidden>` mark below with
- * an `<Image>` (or an inline SVG) and keep the wordmark or drop it, depending
- * on whether the final artwork already contains the name. Nothing else in the
- * app references the logo directly — header and footer both render this
- * component, so a single edit here updates every usage.
+ * TEMPORARY LOGO — the mark and wordmark remain CSS/text based until the real
+ * light and dark assets are ready. The variant API keeps that future swap
+ * local to this component: horizontal for wide layouts, symbol for compact
+ * layouts, or responsive for both.
  */
 export function Logo({
   className,
-  showWordmark = true,
+  variant = "horizontal",
 }: {
   className?: string;
-  showWordmark?: boolean;
+  variant?: LogoVariant;
 }) {
+  const showWordmark = variant !== "symbol";
+
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
+    <span
+      data-logo-variant={variant}
+      className={cn("inline-flex items-center gap-2.5", className)}
+    >
       <span
         aria-hidden="true"
         className={cn(
@@ -34,12 +38,21 @@ export function Logo({
       </span>
 
       {showWordmark ? (
-        <span className="font-display text-lg font-bold tracking-tight text-fg">
+        <span
+          className={cn(
+            "font-display text-lg font-bold tracking-tight text-fg",
+            variant === "responsive" && "hidden sm:inline",
+          )}
+        >
           Optif<span className="text-accent">AI</span>
         </span>
-      ) : (
-        <span className="sr-only">{siteConfig.name}</span>
-      )}
+      ) : null}
+
+      {variant !== "horizontal" ? (
+        <span className={showWordmark ? "sr-only sm:hidden" : "sr-only"}>
+          {siteConfig.name}
+        </span>
+      ) : null}
     </span>
   );
 }

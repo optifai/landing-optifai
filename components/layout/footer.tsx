@@ -6,6 +6,7 @@ import {
   buildWhatsAppUrl,
   mailtoUrl,
   siteConfig,
+  telUrl,
 } from "@/config/site";
 import { services } from "@/data/services";
 import { Logo } from "@/components/shared/logo";
@@ -16,7 +17,6 @@ export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
   const tServices = useTranslations("services.items");
-  const tContact = useTranslations("contact.channels");
   const tWhatsApp = useTranslations("whatsapp");
   const tCommon = useTranslations("common");
 
@@ -24,8 +24,8 @@ export function Footer() {
 
   return (
     <footer className="border-t border-line bg-bg-subtle">
-      <div className="container-page py-14 md:py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+      <div className="container-page pb-7 pt-14 md:pt-16">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-10">
           <div className="max-w-sm">
             <Logo />
             <p className="mt-4 text-sm leading-relaxed text-fg-muted">
@@ -41,13 +41,10 @@ export function Footer() {
                   href={siteConfig.contact.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:text-primary"
+                  aria-label={`Instagram @${siteConfig.contact.instagramUsername} ${tCommon("opensInNewTab")}`}
+                  className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:border-line-strong hover:text-primary focus-visible:border-primary focus-visible:text-primary"
                 >
                   <InstagramIcon className="size-5" />
-                  <span className="sr-only">
-                    Instagram @{siteConfig.contact.instagramUsername}{" "}
-                    {tCommon("opensInNewTab")}
-                  </span>
                 </a>
               </li>
               <li>
@@ -55,12 +52,10 @@ export function Footer() {
                   href={buildWhatsAppUrl(tWhatsApp("message"))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:text-primary"
+                  aria-label={`WhatsApp ${tCommon("opensInNewTab")}`}
+                  className="grid size-10 place-items-center rounded-lg border border-line bg-surface text-fg-muted transition-colors hover:border-line-strong hover:text-primary focus-visible:border-primary focus-visible:text-primary"
                 >
                   <WhatsAppIcon className="size-5" />
-                  <span className="sr-only">
-                    WhatsApp {tCommon("opensInNewTab")}
-                  </span>
                 </a>
               </li>
             </ul>
@@ -68,12 +63,12 @@ export function Footer() {
 
           <nav aria-label={t("navTitle")}>
             <h2 className="text-sm font-semibold text-fg">{t("navTitle")}</h2>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className="mt-3 flex flex-col">
               {NAV_SECTIONS.map((id) => (
                 <li key={id}>
                   <Link
                     href={`/#${id}`}
-                    className="text-sm text-fg-muted transition-colors hover:text-primary"
+                    className="inline-flex min-h-10 items-center text-sm text-fg-muted transition-colors hover:text-primary"
                   >
                     {tNav(id)}
                   </Link>
@@ -86,15 +81,12 @@ export function Footer() {
             <h2 className="text-sm font-semibold text-fg">
               {t("servicesTitle")}
             </h2>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className="mt-3 flex flex-col gap-1.5 py-1">
               {services.map((service) => (
                 <li key={service.id}>
-                  <Link
-                    href="/#services"
-                    className="text-sm text-fg-muted transition-colors hover:text-primary"
-                  >
+                  <span className="text-sm leading-6 text-fg-muted">
                     {tServices(`${service.id}.name`)}
-                  </Link>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -104,43 +96,35 @@ export function Footer() {
             <h2 className="text-sm font-semibold text-fg">
               {t("contactTitle")}
             </h2>
-            <ul className="mt-4 flex flex-col gap-3 text-sm">
+            <ul className="mt-3 flex flex-col gap-1 text-sm">
               <li>
                 <a
                   href={mailtoUrl}
-                  className="inline-flex items-start gap-2.5 text-fg-muted transition-colors hover:text-primary"
+                  className="inline-flex min-h-10 items-center gap-2.5 text-fg-muted transition-colors hover:text-primary"
                 >
                   <Mail
                     aria-hidden="true"
-                    className="mt-0.5 size-4 shrink-0 text-fg-subtle"
+                    className="size-4 shrink-0 text-fg-subtle"
                   />
                   <span className="break-all">{siteConfig.contact.email}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={buildWhatsAppUrl(tWhatsApp("message"))}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-start gap-2.5 text-fg-muted transition-colors hover:text-primary"
+                  href={telUrl}
+                  className="inline-flex min-h-10 items-center gap-2.5 text-fg-muted transition-colors hover:text-primary"
                 >
                   <Phone
                     aria-hidden="true"
-                    className="mt-0.5 size-4 shrink-0 text-fg-subtle"
+                    className="size-4 shrink-0 text-fg-subtle"
                   />
-                  <span>
-                    {siteConfig.contact.whatsappDisplay}
-                    <span className="sr-only">
-                      {" "}
-                      {tContact("whatsapp")} {tCommon("opensInNewTab")}
-                    </span>
-                  </span>
+                  <span>{siteConfig.contact.whatsappDisplay}</span>
                 </a>
               </li>
-              <li className="inline-flex items-start gap-2.5 text-fg-muted">
+              <li className="inline-flex min-h-10 items-center gap-2.5 text-fg-muted">
                 <MapPin
                   aria-hidden="true"
-                  className="mt-0.5 size-4 shrink-0 text-fg-subtle"
+                  className="size-4 shrink-0 text-fg-subtle"
                 />
                 <span>
                   {siteConfig.location.city}, {siteConfig.location.country}
@@ -148,23 +132,26 @@ export function Footer() {
               </li>
             </ul>
 
-            <div className="mt-5">
+            <div className="mt-3">
               <LanguageSwitcher />
             </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-2 border-t border-line pt-5 xl:flex-row xl:items-center xl:justify-between">
           <p className="text-xs text-fg-subtle">
             © {year} {siteConfig.name}. {t("rights")}
           </p>
 
-          <nav aria-label={t("legalTitle")}>
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <nav
+            aria-label={t("legalTitle")}
+            className="pr-16 sm:pr-56"
+          >
+            <ul className="flex flex-wrap items-center gap-x-5">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-xs text-fg-subtle transition-colors hover:text-primary"
+                  className="inline-flex min-h-10 items-center text-xs text-fg-subtle transition-colors hover:text-primary"
                 >
                   {t("privacy")}
                 </Link>
@@ -172,7 +159,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-xs text-fg-subtle transition-colors hover:text-primary"
+                  className="inline-flex min-h-10 items-center text-xs text-fg-subtle transition-colors hover:text-primary"
                 >
                   {t("terms")}
                 </Link>
