@@ -1,0 +1,523 @@
+{
+  "metadata": {
+    "title": "OptifAI — Desarrollo web y software a medida en Paraguay",
+    "titleTemplate": "%s | OptifAI",
+    "description": "Agencia de desarrollo en Asunción. Creamos sistemas a medida, landing pages y tiendas online para simplificar procesos y generar oportunidades. Presupuesto sin costo.",
+    "ogAlt": "OptifAI — desarrollo web y software a medida",
+    "keywords": "desarrollo web Paraguay, software a medida Asunción, landing page, tienda online, sistemas de gestión"
+  },
+
+  "nav": {
+    "services": "Servicios",
+    "process": "Proceso",
+    "projects": "Proyectos",
+    "testimonials": "Testimonios",
+    "clients": "Clientes",
+    "benefits": "Por qué OptifAI",
+    "about": "Nosotros",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú de navegación",
+    "menuTitle": "Navegación",
+    "skipToContent": "Ir al contenido principal",
+    "home": "Inicio de OptifAI",
+    "primary": "Navegación principal"
+  },
+
+  "theme": {
+    "label": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+
+  "language": {
+    "label": "Cambiar idioma",
+    "current": "Idioma actual",
+    "es": "Español",
+    "en": "English",
+    "esShort": "ES",
+    "enShort": "EN"
+  },
+
+  "cta": {
+    "primary": "Contanos sobre tu proyecto",
+    "budget": "Solicitar presupuesto",
+    "call": "Agendar una llamada",
+    "whatsapp": "Hablar por WhatsApp",
+    "viewWork": "Ver nuestros trabajos",
+    "consult": "Consultar por este servicio"
+  },
+
+  "hero": {
+    "badge": "Desarrollo web y software desde Asunción, Paraguay",
+    "titleLead": "Creamos tecnología que",
+    "titleAccent": "impulsa tu negocio",
+    "subtitle": "Desarrollamos sistemas a medida, landing pages y tiendas online pensadas para simplificar procesos, generar oportunidades y acompañar el crecimiento de tu empresa.",
+    "trust": {
+      "personal": "Atención personalizada",
+      "quote": "Presupuesto sin costo",
+      "stages": "Pagos por etapas",
+      "support": "Soporte posterior"
+    },
+    "mockup": {
+      "label": "Ilustración de un panel de gestión con métricas y automatizaciones",
+      "panelTitle": "Panel de gestión",
+      "metricOrders": "Pedidos",
+      "metricRevenue": "Facturación",
+      "metricTasks": "Tareas automatizadas",
+      "automationTitle": "Automatización activa",
+      "automationBody": "Nuevo pedido → WhatsApp → Registro interno",
+      "integrationTitle": "Integraciones",
+      "chartLabel": "Actividad de los últimos meses"
+    }
+  },
+
+  "services": {
+    "eyebrow": "Servicios",
+    "title": "Soluciones digitales para problemas concretos",
+    "subtitle": "Trabajamos sobre lo que tu negocio necesita resolver: procesos manuales, presencia online, ventas y todo lo que hay en el medio.",
+    "examplesLabel": "Algunos ejemplos",
+    "secondaryTitle": "Y todo lo que viene después",
+    "secondarySubtitle": "Un proyecto no termina cuando se publica. Estos servicios acompañan el día a día.",
+    "items": {
+      "custom-software": {
+        "name": "Sistemas a medida",
+        "description": "Plataformas y herramientas construidas alrededor de cómo trabaja tu equipo, no al revés. Menos planillas sueltas y menos tareas repetidas a mano.",
+        "examples": [
+          "Sistemas administrativos",
+          "Gestión de clientes",
+          "Paneles internos",
+          "Gestión de inventario y pedidos",
+          "Automatización de tareas",
+          "Reportes e integraciones"
+        ]
+      },
+      "landing": {
+        "name": "Landing pages",
+        "description": "Páginas rápidas y claras, diseñadas para que la visita termine en una consulta, un registro o una venta. Ideales para acompañar campañas.",
+        "examples": [
+          "Páginas para campañas publicitarias",
+          "Formularios y captación de contactos",
+          "Optimización de velocidad",
+          "Medición y seguimiento"
+        ]
+      },
+      "ecommerce": {
+        "name": "Tiendas online",
+        "description": "Ecommerce adaptado a tu catálogo y a tu forma de vender, con carrito, gestión de pedidos, medios de pago y contacto directo por WhatsApp.",
+        "examples": [
+          "Catálogo y carrito",
+          "Gestión de pedidos",
+          "Medios de pago",
+          "Contacto por WhatsApp"
+        ]
+      },
+      "maintenance": {
+        "name": "Mantenimiento y soporte",
+        "description": "Correcciones, actualizaciones, mejoras y monitoreo después de la publicación, con acompañamiento cuando lo necesites."
+      },
+      "integrations": {
+        "name": "Integraciones",
+        "description": "Conectamos tu sitio o sistema con WhatsApp, pasarelas de pago, correo, formularios, APIs y las herramientas que ya usás."
+      },
+      "hosting": {
+        "name": "Hosting y dominio",
+        "description": "Podés administrar tu propio hosting y dominio, o delegarnos la parte técnica y despreocuparte de la configuración."
+      },
+      "seo": {
+        "name": "SEO técnico",
+        "description": "Optimización de estructura, velocidad, metadatos e indexación para que tu sitio sea más fácil de encontrar y de recorrer."
+      }
+    },
+    "notes": {
+      "integrations": "Las integraciones disponibles dependen del proyecto y del país. Podemos evaluar opciones como Mercado Pago, Stripe u otras alternativas según el caso.",
+      "seo": "Trabajamos sobre la calidad técnica del sitio. No prometemos posiciones específicas en buscadores."
+    }
+  },
+
+  "benefits": {
+    "eyebrow": "Por qué OptifAI",
+    "title": "Una forma de trabajar clara y sin sorpresas",
+    "subtitle": "Más allá de la tecnología, lo que hace que un proyecto salga bien es cómo se lleva adelante.",
+    "items": {
+      "tailored": {
+        "name": "Adaptado a tu negocio",
+        "description": "Partimos de tus procesos reales. Nada de forzar tu operación dentro de un producto genérico."
+      },
+      "communication": {
+        "name": "Comunicación directa",
+        "description": "Hablás con quien desarrolla. Sin intermediarios ni respuestas que tardan días."
+      },
+      "responsive": {
+        "name": "Diseño responsive",
+        "description": "Todo lo que entregamos funciona bien en celular, tablet y escritorio desde el primer día."
+      },
+      "maintainable": {
+        "name": "Código mantenible",
+        "description": "Escribimos pensando en quien va a tocar el proyecto en seis meses, seas vos, tu equipo u otro proveedor."
+      },
+      "stages": {
+        "name": "Avance por etapas",
+        "description": "El proyecto se divide en tramos con entregas visibles, y los pagos acompañan ese avance."
+      },
+      "support": {
+        "name": "Soporte después del lanzamiento",
+        "description": "Publicar no es el final. Seguimos disponibles para ajustes, mejoras y consultas."
+      },
+      "scalable": {
+        "name": "Preparado para crecer",
+        "description": "Las soluciones se construyen para poder sumar funciones después sin empezar de cero."
+      },
+      "transparency": {
+        "name": "Transparencia",
+        "description": "Alcance, tiempos y costos se definen y se conversan antes de empezar."
+      }
+    }
+  },
+
+  "process": {
+    "eyebrow": "Proceso",
+    "title": "Cómo trabajamos",
+    "subtitle": "Un recorrido ordenado, desde la primera charla hasta el soporte posterior.",
+    "stepLabel": "Paso {number}",
+    "note": "Los tiempos de cada etapa dependen del alcance y la complejidad del proyecto. Los definimos juntos antes de comenzar.",
+    "steps": {
+      "conversation": {
+        "name": "Primera conversación",
+        "description": "Nos contás qué necesita tu negocio y qué te está trabando hoy. Sin compromiso y sin costo."
+      },
+      "discovery": {
+        "name": "Relevamiento y alcance",
+        "description": "Revisamos procesos, prioridades y requisitos para definir con precisión qué entra en el proyecto."
+      },
+      "proposal": {
+        "name": "Propuesta y planificación",
+        "description": "Te presentamos la solución propuesta, el presupuesto, las etapas de pago y una estimación de tiempos."
+      },
+      "build": {
+        "name": "Diseño y desarrollo",
+        "description": "Avanzamos por etapas, con entregas que podés ver y comentar mientras el proyecto se construye."
+      },
+      "launch": {
+        "name": "Pruebas, publicación y soporte",
+        "description": "Probamos, corregimos, publicamos y seguimos acompañando después de que todo esté en línea."
+      }
+    }
+  },
+
+  "projects": {
+    "eyebrow": "Proyectos",
+    "title": "Trabajos y tipos de proyecto",
+    "subtitle": "Proyectos publicados con autorización y formatos pendientes claramente identificados.",
+    "placeholderBadge": "Ejemplo ilustrativo",
+    "placeholderNotice": "Los proyectos identificados como ejemplos son formatos de referencia y no corresponden a clientes reales.",
+    "clientLabel": "Cliente",
+    "clientPending": "A definir",
+    "problemLabel": "Situación",
+    "solutionLabel": "Enfoque",
+    "resultLabel": "Resultado",
+    "techLabel": "Tecnologías",
+    "imageAlt": "Captura de {name}",
+    "visitSite": "Ver sitio",
+    "viewRepo": "Ver repositorio",
+    "categories": {
+      "management": "Sistema de gestión",
+      "landing": "Landing page",
+      "ecommerce": "Tienda online"
+    },
+    "items": {
+      "af-hub-negocios": {
+        "name": "AF | HUB de Negocios",
+        "problem": "Landing page pública de AF | HUB de Negocios.",
+        "solution": "Presentación institucional del hub, sus unidades y sus vías de contacto."
+      },
+      "platinum-joyas": {
+        "name": "Platinum Joyas",
+        "problem": "Tienda online pública de Platinum Joyas.",
+        "solution": "Catálogo de joyas con colecciones, productos y experiencia de compra online."
+      },
+      "sample-management": {
+        "name": "Sistema a medida",
+        "problem": "Un equipo administra pedidos, clientes y stock en planillas separadas, con datos que se duplican y se desactualizan.",
+        "solution": "Un panel único donde se cargan pedidos, se consulta stock y se generan reportes, con permisos por rol y registro de cambios."
+      }
+    },
+    "cta": {
+      "title": "¿Tenés un proyecto parecido?",
+      "description": "Contanos qué necesitás y lo analizamos juntos."
+    }
+  },
+
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "title": "Lo que dicen los clientes",
+    "emptyTitle": "Todavía no publicamos testimonios",
+    "emptyDescription": "Preferimos esperar a tener comentarios reales y autorizados de clientes antes de mostrarlos acá. Esta sección se completará con testimonios verificables.",
+    "placeholderBadge": "Testimonio pendiente de reemplazo"
+  },
+
+  "clients": {
+    "eyebrow": "Clientes",
+    "title": "Clientes que confiaron en OptifAI",
+    "subtitle": "Logos publicados únicamente con autorización.",
+    "carouselLabel": "Logos de clientes",
+    "emptyTitle": "Todavía no publicamos logos de clientes",
+    "emptyDescription": "Esta sección está preparada para mostrar únicamente clientes reales y autorizados."
+  },
+
+  "about": {
+    "eyebrow": "Nosotros",
+    "title": "Sobre OptifAI",
+    "lead": "OptifAI es un equipo de desarrollo que trabaja desde Asunción, Paraguay, creando soluciones digitales a medida.",
+    "body": "Acompañamos el proyecto desde la definición del alcance hasta la publicación, y podemos seguir después con soporte y mantenimiento. Trabajamos tanto con clientes locales como de forma remota con negocios de otros países de América.",
+    "closing": "Nos interesa entender el problema antes de proponer una solución. Por eso la primera conversación siempre es sobre tu negocio, no sobre tecnología.",
+    "points": {
+      "local": {
+        "name": "Base en Asunción",
+        "description": "Trabajo local con disponibilidad para clientes remotos de toda América."
+      },
+      "endToEnd": {
+        "name": "De la idea a la publicación",
+        "description": "Definición, diseño, desarrollo, pruebas y puesta en línea."
+      },
+      "continuity": {
+        "name": "Continuidad",
+        "description": "Soporte y mantenimiento disponibles después de la entrega."
+      }
+    },
+    "experienceLabel": "Años de experiencia"
+  },
+
+  "faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Dudas comunes antes de empezar",
+    "subtitle": "Si te queda algo sin responder, escribinos y lo conversamos.",
+    "items": {
+      "request": {
+        "question": "¿Cómo solicito un presupuesto?",
+        "answer": "Podés completar el formulario de contacto de esta página o escribirnos por WhatsApp. Cuanto más nos cuentes sobre lo que necesitás, más precisa será la propuesta. Si hace falta, coordinamos una llamada para terminar de definirlo."
+      },
+      "cost": {
+        "question": "¿El presupuesto tiene costo?",
+        "answer": "No. Analizar tu necesidad y preparar una propuesta con alcance, etapas y costos no tiene costo ni compromiso."
+      },
+      "duration": {
+        "question": "¿Cuánto tarda un proyecto?",
+        "answer": "Depende del alcance y de la complejidad. Una landing page suele ser bastante más rápida que un sistema de gestión con varios módulos. Después del relevamiento te damos una estimación concreta, y si algo cambia durante el proyecto lo conversamos antes."
+      },
+      "payments": {
+        "question": "¿Cómo se organizan los pagos?",
+        "answer": "Trabajamos con pagos divididos por etapas, asociados al avance del proyecto. La cantidad de etapas y los montos se definen en la propuesta antes de empezar."
+      },
+      "international": {
+        "question": "¿Trabajan con clientes fuera de Paraguay?",
+        "answer": "Sí. Trabajamos con clientes locales y también de forma remota con negocios de otros países de América. La comunicación se coordina según la zona horaria de cada cliente."
+      },
+      "hosting": {
+        "question": "¿Puedo administrar mi dominio y hosting?",
+        "answer": "Sí, y es una opción totalmente válida: el dominio y el hosting quedan a tu nombre y bajo tu control. Si preferís no ocuparte de la parte técnica, podemos encargarnos nosotros de la configuración y el mantenimiento."
+      },
+      "maintenance": {
+        "question": "¿Ofrecen mantenimiento?",
+        "answer": "Sí. Después de la publicación podemos seguir con correcciones, actualizaciones, mejoras y monitoreo. Se acuerda según lo que el proyecto necesite."
+      },
+      "existing": {
+        "question": "¿Pueden mejorar un sistema o sitio existente?",
+        "answer": "En general sí. Primero revisamos el estado actual del proyecto y su código. A veces conviene mejorar lo que ya existe y otras veces rehacerlo resulta más conveniente a mediano plazo. Te decimos con franqueza cuál de las dos vemos mejor y por qué."
+      },
+      "integrations": {
+        "question": "¿Trabajan con integraciones de pagos y WhatsApp?",
+        "answer": "Sí. Las opciones concretas dependen del proyecto, del país y de los requisitos de cada plataforma. Lo evaluamos durante el relevamiento y te confirmamos qué es viable antes de incluirlo en la propuesta."
+      },
+      "start": {
+        "question": "¿Qué necesitan para comenzar?",
+        "answer": "Con una descripción de tu negocio y del problema que querés resolver alcanza para empezar a conversar. Si ya tenés material como referencias, textos, logo o accesos, sumalo; y si no lo tenés, lo vamos armando en el camino."
+      }
+    }
+  },
+
+  "finalCta": {
+    "title": "Tu próxima solución digital puede empezar hoy",
+    "description": "Contanos qué necesita tu negocio. Analizaremos el proyecto y prepararemos una propuesta sin costo.",
+    "reassurance": "Respondemos a cada consulta. Sin compromiso."
+  },
+
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Contanos sobre tu proyecto",
+    "subtitle": "Completá el formulario y te respondemos con los próximos pasos. También podés escribirnos por WhatsApp si preferís algo más rápido.",
+    "formTitle": "Formulario de contacto",
+    "requiredLegend": "Los campos marcados con * son obligatorios.",
+    "channels": {
+      "title": "Otras formas de contacto",
+      "whatsapp": "WhatsApp",
+      "email": "Correo",
+      "instagram": "Instagram",
+      "location": "Ubicación"
+    },
+    "fields": {
+      "name": "Nombre y apellido",
+      "namePlaceholder": "Ana Gómez",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "ana@empresa.com",
+      "phone": "Celular",
+      "phonePlaceholder": "0981 123 456",
+      "projectType": "Tipo de proyecto",
+      "projectTypePlaceholder": "Seleccioná una opción (opcional)",
+      "message": "¿En qué te podemos ayudar?",
+      "messagePlaceholder": "Contanos qué hace tu negocio y qué necesitás resolver.",
+      "companyWebsite": "No completes este campo"
+    },
+    "projectTypes": {
+      "custom-system": "Sistema a medida",
+      "landing-page": "Landing page",
+      "online-store": "Tienda online",
+      "other": "Otro"
+    },
+    "submit": "Enviar consulta",
+    "submitting": "Enviando…",
+    "charactersLeft": "{count} caracteres restantes",
+    "validation": {
+      "nameMin": "Ingresá tu nombre y apellido (mínimo 2 caracteres).",
+      "nameMax": "El nombre es demasiado largo.",
+      "emailInvalid": "Ingresá un correo electrónico válido.",
+      "emailMax": "El correo es demasiado largo.",
+      "phoneMin": "Ingresá un número de celular válido.",
+      "phoneMax": "El número es demasiado largo.",
+      "phoneInvalid": "El número solo puede contener dígitos, espacios y los signos + ( ) - .",
+      "projectTypeInvalid": "Seleccioná un tipo de proyecto válido.",
+      "messageMin": "Contanos un poco más (mínimo 20 caracteres).",
+      "messageMax": "El mensaje es demasiado largo.",
+      "spam": "No pudimos procesar el envío."
+    },
+    "status": {
+      "errorsTitle": "Revisá los datos ingresados",
+      "successTitle": "¡Gracias por escribirnos!",
+      "successBody": "Recibimos tu consulta y te vamos a responder al correo que dejaste.",
+      "devTitle": "Enviado en modo desarrollo",
+      "devBody": "Los datos se validaron correctamente y se registraron en la consola del servidor. No se envió ningún correo real porque falta configurar RESEND_API_KEY.",
+      "errorTitle": "No pudimos enviar tu consulta",
+      "errorBody": "Ocurrió un problema al procesar el envío. Probá de nuevo en unos minutos o escribinos por WhatsApp.",
+      "sendAnother": "Enviar otra consulta"
+    },
+    "callIntent": "Quiero agendar una llamada para conversar sobre un proyecto."
+  },
+
+  "whatsapp": {
+    "float": "Hablar por WhatsApp",
+    "message": "Hola, encontré la web de OptifAI y quisiera consultar por un proyecto."
+  },
+
+  "footer": {
+    "tagline": "Desarrollo web y software a medida desde Asunción, Paraguay. Sistemas, landing pages y tiendas online para negocios que quieren crecer.",
+    "navTitle": "Navegación",
+    "servicesTitle": "Servicios",
+    "contactTitle": "Contacto",
+    "legalTitle": "Legal",
+    "privacy": "Política de privacidad",
+    "terms": "Términos y condiciones",
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Sitio construido con Next.js.",
+    "socialLabel": "Redes sociales"
+  },
+
+  "legal": {
+    "backHome": "Volver al inicio",
+    "reviewNotice": "Este texto es una versión inicial de referencia. Debe ser revisado por un profesional legal antes de la publicación definitiva del sitio.",
+    "lastUpdated": "Última actualización: {date}",
+    "privacy": {
+      "title": "Política de privacidad",
+      "metaDescription": "Cómo OptifAI trata los datos que recibe a través de su sitio web.",
+      "intro": "Esta política describe qué datos recibe OptifAI a través de este sitio, con qué finalidad se utilizan y qué opciones tenés sobre ellos.",
+      "sections": {
+        "data": {
+          "title": "Datos que recibimos",
+          "body": "Recibimos únicamente los datos que completás voluntariamente en el formulario de contacto: nombre y apellido, correo electrónico, número de celular, tipo de proyecto (opcional) y el mensaje que escribís. No solicitamos datos sensibles ni información de pago a través de este sitio."
+        },
+        "purpose": {
+          "title": "Para qué los usamos",
+          "body": "Usamos esos datos con una única finalidad: responder tu consulta y, si avanzamos, coordinar el proyecto. No los usamos para enviar comunicaciones comerciales masivas ni para fines distintos de los que motivaron tu contacto."
+        },
+        "sharing": {
+          "title": "Con quién se comparten",
+          "body": "No vendemos ni cedemos tus datos a terceros. Para poder operar, el sitio se apoya en proveedores de servicios que procesan la información por nuestra cuenta, como el proveedor de alojamiento y el servicio de envío de correo. Estos proveedores acceden a los datos solo en la medida necesaria para prestar el servicio."
+        },
+        "retention": {
+          "title": "Cuánto tiempo se conservan",
+          "body": "Conservamos los mensajes recibidos mientras sean necesarios para atender la consulta y mantener el historial de la relación comercial. Si preferís que eliminemos tus datos antes, podés solicitarlo."
+        },
+        "cookies": {
+          "title": "Cookies y almacenamiento local",
+          "body": "Este sitio no utiliza cookies de publicidad ni de seguimiento de terceros. Guardamos localmente en tu navegador únicamente tus preferencias de idioma y de tema (claro u oscuro), para que el sitio se muestre como lo elegiste."
+        },
+        "rights": {
+          "title": "Tus derechos",
+          "body": "Podés pedirnos acceder a los datos que tenemos sobre vos, corregirlos o eliminarlos. Para hacerlo, escribinos al correo de contacto indicado más abajo y responderemos en un plazo razonable."
+        },
+        "contact": {
+          "title": "Contacto",
+          "body": "Para cualquier consulta relacionada con esta política, podés escribirnos a {email}."
+        },
+        "changes": {
+          "title": "Cambios en esta política",
+          "body": "Podemos actualizar esta política si cambian nuestros servicios o los requisitos aplicables. La versión vigente siempre estará publicada en esta página, con su fecha de actualización."
+        }
+      }
+    },
+    "terms": {
+      "title": "Términos y condiciones",
+      "metaDescription": "Condiciones de uso del sitio web de OptifAI y alcance de la información publicada.",
+      "intro": "Estas condiciones regulan el uso de este sitio web. El detalle de cada proyecto se acuerda por separado, en la propuesta correspondiente.",
+      "sections": {
+        "scope": {
+          "title": "Alcance del sitio",
+          "body": "Este sitio tiene una finalidad informativa: presenta los servicios de OptifAI y ofrece canales de contacto. La información publicada no constituye una oferta contractual ni un compromiso de prestación de servicios."
+        },
+        "quotes": {
+          "title": "Consultas y presupuestos",
+          "body": "Enviar el formulario de contacto no genera obligaciones para ninguna de las partes. Los presupuestos se elaboran de forma individual, sin costo, y detallan alcance, etapas y condiciones. Un proyecto se considera acordado únicamente cuando ambas partes aceptan una propuesta concreta."
+        },
+        "services": {
+          "title": "Prestación de los servicios",
+          "body": "Los plazos, entregables y responsabilidades de cada proyecto se definen en la propuesta aceptada. Las estimaciones de tiempo publicadas en este sitio son orientativas y dependen del alcance, de la complejidad y de la disponibilidad de la información y los accesos que provea el cliente."
+        },
+        "ip": {
+          "title": "Propiedad intelectual",
+          "body": "Los contenidos de este sitio, incluidos textos, diseño y elementos gráficos, pertenecen a OptifAI, salvo indicación en contrario. La titularidad del código y los materiales desarrollados para cada cliente se define en el acuerdo particular de ese proyecto."
+        },
+        "thirdParty": {
+          "title": "Servicios de terceros",
+          "body": "Algunos proyectos pueden requerir servicios de terceros, como alojamiento, dominios, pasarelas de pago o APIs externas. Esos servicios se rigen por sus propias condiciones y precios, y su disponibilidad no depende de OptifAI."
+        },
+        "liability": {
+          "title": "Limitación de responsabilidad",
+          "body": "Procuramos que la información de este sitio sea correcta y esté actualizada, pero no garantizamos que esté libre de errores ni que el sitio esté disponible de forma ininterrumpida. OptifAI no se responsabiliza por decisiones tomadas exclusivamente sobre la base del contenido informativo publicado acá."
+        },
+        "links": {
+          "title": "Enlaces externos",
+          "body": "Este sitio puede incluir enlaces a sitios de terceros. No controlamos su contenido ni sus políticas, por lo que no asumimos responsabilidad sobre ellos."
+        },
+        "law": {
+          "title": "Legislación aplicable",
+          "body": "Estas condiciones se rigen por la legislación de la República del Paraguay. Cualquier controversia se procurará resolver de buena fe entre las partes antes de recurrir a otras instancias."
+        },
+        "changes": {
+          "title": "Modificaciones",
+          "body": "Podemos modificar estas condiciones en cualquier momento. La versión vigente es la publicada en esta página, con su fecha de actualización."
+        }
+      }
+    }
+  },
+
+  "common": {
+    "loading": "Cargando…",
+    "opensInNewTab": "(se abre en una pestaña nueva)",
+    "notFoundTitle": "Página no encontrada",
+    "notFoundBody": "La página que buscás no existe o cambió de dirección.",
+    "errorTitle": "Algo salió mal",
+    "errorBody": "Ocurrió un error inesperado. Probá recargar la página.",
+    "retry": "Reintentar"
+  }
+}

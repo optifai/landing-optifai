@@ -1,26 +1,306 @@
 @import "tailwindcss";
 
+/* next-themes writes `class="dark"` on <html>, so the dark variant follows the
+   class rather than the OS media query. System preference is still honoured —
+   next-themes resolves it and sets the class accordingly. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+   Raw values live here; @theme inline below exposes them as Tailwind utilities.
+   Every foreground/background pair is chosen to clear WCAG AA (4.5:1 for body
+   text, 3:1 for large text, icons and UI borders).
+--------------------------------------------------------------------------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --bg: #f5f8fd;
+  --bg-subtle: #eaf0fa;
+  --surface: #ffffff;
+  --surface-2: #eef3fb;
+
+  --fg: #0a1526;
+  --fg-muted: #4c5e7a;
+  /* 5.3:1 on --surface-2, the lightest surface it appears on. A lighter grey
+     read better but failed AA at the 12px sizes this token is used at. */
+  --fg-subtle: #55657f;
+
+  --line: #dce5f2;
+  --line-strong: #c3d2e6;
+
+  --primary: #1d4ed8;
+  --primary-hover: #1a43ba;
+  --primary-fg: #ffffff;
+  --primary-soft: #e6edfd;
+
+  --secondary: #0b2a63;
+
+  --accent: #0e7490;
+  --accent-strong: #0891b2;
+  --accent-soft: #dcf3f8;
+
+  --success: #15803d;
+  --success-soft: #e3f5ea;
+  --error: #b3261e;
+  --error-soft: #fdeceb;
+
+  --ring: #2563eb;
+
+  /* Ambient light used behind the hero and the final CTA. */
+  --glow-a: rgb(37 99 235 / 0.16);
+  --glow-b: rgb(8 145 178 / 0.14);
+  --grid-line: rgb(13 42 99 / 0.06);
+
+  --shadow-card: 0 1px 2px rgb(10 21 38 / 0.04), 0 8px 24px -12px rgb(10 21 38 / 0.14);
+  --shadow-lifted: 0 2px 4px rgb(10 21 38 / 0.05), 0 20px 48px -20px rgb(10 21 38 / 0.22);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg: #050b18;
+  --bg-subtle: #030812;
+  --surface: #0b1524;
+  --surface-2: #122038;
+
+  --fg: #e9eff9;
+  --fg-muted: #9cafca;
+  --fg-subtle: #7c8fac;
+
+  --line: #1d2d47;
+  --line-strong: #2d4266;
+
+  --primary: #4b8bf5;
+  --primary-hover: #6ba0f8;
+  --primary-fg: #04101f;
+  --primary-soft: #10233f;
+
+  --secondary: #9dc0ff;
+
+  --accent: #22d3ee;
+  --accent-strong: #67e8f9;
+  --accent-soft: #0a2733;
+
+  --success: #4ade80;
+  --success-soft: #0c2418;
+  --error: #fca5a5;
+  --error-soft: #2a1113;
+
+  --ring: #6ba0f8;
+
+  --glow-a: rgb(37 99 235 / 0.22);
+  --glow-b: rgb(34 211 238 / 0.14);
+  --grid-line: rgb(157 192 255 / 0.06);
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lifted: 0 2px 4px rgb(0 0 0 / 0.45), 0 24px 56px -20px rgb(0 0 0 / 0.75);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+
+  --color-secondary: var(--secondary);
+
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-error: var(--error);
+  --color-error-soft: var(--error-soft);
+
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-body), ui-sans-serif, sans-serif;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-lifted: var(--shadow-lifted);
+
+  /* Slightly tighter than Tailwind's defaults — the design uses restrained
+     rounding rather than fully pill-shaped surfaces. */
+  --radius-card: 0.875rem;
+  --radius-panel: 1.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keeps anchored headings clear of the sticky header. */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    /* Guards against any child overflowing on very narrow viewports. */
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  /* Only remove the default outline where :focus-visible is supported, so
+     keyboard focus is never lost. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-fg);
+  }
+
+  /* Respect the OS-level reduced-motion setting everywhere, including the
+     smooth anchor scrolling above. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------------------------------------------------------------------------
+   Composed utilities
+--------------------------------------------------------------------------- */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Gradient text used sparingly, on section and hero headlines only. */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--primary) 0%,
+    var(--accent-strong) 100%
+  );
+  background-clip: text;
+  color: transparent;
+  /* Descenders would be clipped without a little breathing room. */
+  padding-bottom: 0.1em;
+}
+
+/* Faint technical grid. Purely decorative, always behind content. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@keyframes optifai-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes optifai-pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes optifai-clients-scroll {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+/* Very slow, small-amplitude drift for the floating hero cards. */
+@utility animate-float {
+  animation: optifai-float 7s ease-in-out infinite;
+}
+
+@utility animate-pulse-dot {
+  animation: optifai-pulse-dot 2.4s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .clients-track {
+    animation: optifai-clients-scroll 36s linear infinite;
+  }
+
+  .clients-marquee:hover .clients-track,
+  .clients-marquee:focus-within .clients-track {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-track {
+    animation: none;
+  }
 }

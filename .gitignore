@@ -12,6 +12,10 @@
 
 # testing
 /coverage
+/playwright-report/
+/blob-report/
+/test-results/
+/playwright/.cache/
 
 # next.js
 /.next/
@@ -29,9 +33,19 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
+*.trace
+*.tmp
+*.temp
+
+# tool caches
+/.cache/
+.eslintcache
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...but the template carries no secrets and must be committed.
+!.env.example
 
 # vercel
 .vercel
