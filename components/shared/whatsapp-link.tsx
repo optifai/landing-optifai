@@ -14,6 +14,9 @@ interface WhatsAppLinkProps {
   className?: string;
   /** Overrides the default "Chat on WhatsApp" label. */
   label?: string;
+  /** Overrides the shared greeting when a CTA needs more specific context. */
+  message?: string;
+  ariaLabel?: string;
   showIcon?: boolean;
 }
 
@@ -26,6 +29,8 @@ export function WhatsAppLink({
   size = "md",
   className,
   label,
+  message,
+  ariaLabel,
   showIcon = true,
 }: WhatsAppLinkProps) {
   const t = useTranslations("whatsapp");
@@ -33,9 +38,10 @@ export function WhatsAppLink({
 
   return (
     <a
-      href={buildWhatsAppUrl(t("message"))}
+      href={buildWhatsAppUrl(message ?? t("message"))}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={ariaLabel}
       className={buttonClasses(variant, size, className)}
     >
       {showIcon ? <WhatsAppIcon className="size-[1.15em]" /> : null}

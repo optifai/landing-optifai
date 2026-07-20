@@ -1,20 +1,18 @@
+"use client";
+
+import * as React from "react";
 import { useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
 import { SECTION_IDS } from "@/config/site";
 import { faqItems } from "@/data/faq";
+import { cn } from "@/lib/utils";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 
-/**
- * FAQ accordion built on native `<details>` / `<summary>`.
- *
- * The browser gives us correct keyboard support, focus handling and expanded
- * state for free — no JavaScript, no ARIA to keep in sync, and it still works
- * if scripting fails. Items are independent (no `name` attribute) so several
- * answers can stay open at once.
- */
 export function Faq() {
   const t = useTranslations("faq");
+  const instanceId = React.useId().replaceAll(":", "");
+  const [openItem, setOpenItem] = React.useState<string | null>(null);
 
   return (
     <Section id={SECTION_IDS.faq}>
@@ -26,28 +24,69 @@ export function Faq() {
 
       <div className="mx-auto mt-12 max-w-3xl">
         <ul className="flex flex-col gap-3">
-          {faqItems.map((item, index) => (
-            <li key={item.id}>
-              <Reveal index={Math.min(index, 3)}>
-                <details className="group rounded-card border border-line bg-surface transition-colors duration-200 open:border-line-strong">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-fg [&::-webkit-details-marker]:hidden">
-                    <span className="text-[0.9375rem] sm:text-base">
-                      {t(`items.${item.id}.question`)}
-                    </span>
-                    <ChevronDown
-                      aria-hidden="true"
-                      className="size-5 shrink-0 text-fg-subtle transition-transform duration-200 group-open:rotate-180"
-                    />
-                  </summary>
-                  <div className="px-5 pb-5 pt-0">
-                    <p className="text-sm leading-relaxed text-fg-muted sm:text-[0.9375rem]">
-                      {t(`items.${item.id}.answer`)}
-                    </p>
+          {faqItems.map((item, index) => {
+            const isOpen = openItem === item.id;
+            const triggerId = `${instanceId}-${item.id}-trigger`;
+            const panelId = `${instanceId}-${item.id}-panel`;
+
+            return (
+              <li key={item.id}>
+                <Reveal index={Math.min(index, 3)}>
+                  <div
+                    className={cn(
+                      "rounded-card border bg-surface transition-colors duration-200",
+                      isOpen ? "border-line-strong" : "border-line",
+                    )}
+                  >
+                    <h3>
+                      <button
+                        id={triggerId}
+                        type="button"
+                        aria-expanded={isOpen}
+                        aria-controls={panelId}
+                        onClick={() =>
+                          setOpenItem((current) =>
+                            current === item.id ? null : item.id,
+                          )
+                        }
+                        className="flex w-full cursor-pointer items-center justify-between gap-4 rounded-card px-5 py-4 text-left font-semibold text-fg"
+                      >
+                        <span className="text-[0.9375rem] sm:text-base">
+                          {t(`items.${item.id}.question`)}
+                        </span>
+                        <ChevronDown
+                          aria-hidden="true"
+                          className={cn(
+                            "size-5 shrink-0 text-fg-subtle transition-transform duration-[250ms]",
+                            isOpen && "rotate-180",
+                          )}
+                        />
+                      </button>
+                    </h3>
+
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={triggerId}
+                      aria-hidden={!isOpen}
+                      className={cn(
+                        "grid transition-[grid-template-rows,opacity] duration-[250ms] ease-out",
+                        isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0",
+                      )}
+                    >
+                      <div className="min-h-0 overflow-hidden">
+                        <p className="px-5 pb-5 text-sm leading-relaxed text-fg-muted sm:text-[0.9375rem]">
+                          {t(`items.${item.id}.answer`)}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </details>
-              </Reveal>
-            </li>
-          ))}
+                </Reveal>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </Section>

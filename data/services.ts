@@ -23,8 +23,15 @@ export const services: Service[] = [
   { id: "seo", icon: Search, tier: "secondary", exampleCount: 0 },
 ];
 
-export const primaryServices = services.filter((s) => s.tier === "primary");
-export const secondaryServices = services.filter((s) => s.tier === "secondary");
+/** The same seven services, grouped by the business goal they support. */
+export const serviceGoals = [
+  { id: "sales", serviceIds: ["ecommerce", "landing"] },
+  { id: "operations", serviceIds: ["custom-software"] },
+  {
+    id: "support",
+    serviceIds: ["maintenance", "integrations", "seo", "hosting"],
+  },
+] as const;
 
 /** Service ids that carry an extra clarifying note under the card. */
 export const servicesWithNotes = ["integrations", "seo"] as const;

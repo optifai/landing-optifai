@@ -101,9 +101,9 @@ export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 
 /** Order of the anchor links in the header and footer navigation. */
 export const NAV_SECTIONS: SectionId[] = [
+  SECTION_IDS.projects,
   SECTION_IDS.services,
   SECTION_IDS.process,
-  SECTION_IDS.projects,
   SECTION_IDS.about,
   SECTION_IDS.faq,
   SECTION_IDS.contact,

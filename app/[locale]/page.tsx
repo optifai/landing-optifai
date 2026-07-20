@@ -40,9 +40,9 @@ export default async function HomePage({
     <>
       <StructuredData locale={locale} />
       <Hero />
+      <Projects />
       <Services />
       <Process />
-      <Projects />
       <Testimonials />
       <Clients />
       <Benefits />

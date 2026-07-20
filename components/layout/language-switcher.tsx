@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
@@ -17,6 +18,14 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const t = useTranslations("language");
   const pathname = usePathname();
   const active = useLocale() as Locale;
+  const [hash, setHash] = React.useState("");
+
+  React.useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
 
   return (
     <div
@@ -31,7 +40,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         return (
           <Link
             key={locale}
-            href={pathname}
+            href={`${pathname}${hash}`}
             locale={locale}
             // Marks the current language for assistive tech without relying on
             // the highlight alone.

@@ -44,7 +44,6 @@
     "budget": "Solicitar presupuesto",
     "call": "Agendar una llamada",
     "whatsapp": "Hablar por WhatsApp",
-    "viewWork": "Ver nuestros trabajos",
     "consult": "Consultar por este servicio"
   },
 
@@ -53,6 +52,8 @@
     "titleLead": "Creamos tecnología que",
     "titleAccent": "impulsa tu negocio",
     "subtitle": "Desarrollamos sistemas a medida, landing pages y tiendas online pensadas para simplificar procesos, generar oportunidades y acompañar el crecimiento de tu empresa.",
+    "whatsappCta": "Hablemos por WhatsApp",
+    "whatsappMessage": "Hola, vi la web de OptifAI y quisiera consultar sobre un proyecto.",
     "trust": {
       "personal": "Atención personalizada",
       "quote": "Presupuesto sin costo",
@@ -74,8 +75,15 @@
 
   "services": {
     "eyebrow": "Servicios",
-    "title": "Soluciones digitales para problemas concretos",
+    "title": "Soluciones digitales según tus objetivos",
     "subtitle": "Trabajamos sobre lo que tu negocio necesita resolver: procesos manuales, presencia online, ventas y todo lo que hay en el medio.",
+    "goalLabel": "Objetivo",
+    "consultGoal": "Consultar por estas soluciones",
+    "goals": {
+      "sales": "Aumentar ventas",
+      "operations": "Optimizar operaciones",
+      "support": "Acompañamiento continuo"
+    },
     "examplesLabel": "Algunos ejemplos",
     "secondaryTitle": "Y todo lo que viene después",
     "secondarySubtitle": "Un proyecto no termina cuando se publica. Estos servicios acompañan el día a día.",
@@ -184,11 +192,11 @@
     "steps": {
       "conversation": {
         "name": "Primera conversación",
-        "description": "Nos contás qué necesita tu negocio y qué te está trabando hoy. Sin compromiso y sin costo."
+        "description": "Nos contás qué necesita tu negocio y qué procesos te gustaría optimizar. Sin compromiso y sin costo."
       },
       "discovery": {
         "name": "Relevamiento y alcance",
-        "description": "Revisamos procesos, prioridades y requisitos para definir con precisión qué entra en el proyecto."
+        "description": "Revisamos procesos, prioridades y requisitos para definir con claridad los objetivos y requerimientos del proyecto."
       },
       "proposal": {
         "name": "Propuesta y planificación",
@@ -196,11 +204,11 @@
       },
       "build": {
         "name": "Diseño y desarrollo",
-        "description": "Avanzamos por etapas, con entregas que podés ver y comentar mientras el proyecto se construye."
+        "description": "Avanzamos por etapas estructuradas, con entregas parciales definidas para que puedas revisar y validar el avance del proyecto."
       },
       "launch": {
         "name": "Pruebas, publicación y soporte",
-        "description": "Probamos, corregimos, publicamos y seguimos acompañando después de que todo esté en línea."
+        "description": "Realizamos el control de calidad, ajustamos según lo acordado, publicamos y seguimos brindando soporte post-publicación."
       }
     }
   },
@@ -209,6 +217,11 @@
     "eyebrow": "Proyectos",
     "title": "Trabajos y tipos de proyecto",
     "subtitle": "Proyectos publicados con autorización.",
+    "carouselType": "carrusel",
+    "carouselLabel": "Carrusel de proyectos",
+    "previous": "Ver proyectos anteriores",
+    "next": "Ver proyectos siguientes",
+    "carouselPosition": "Página {current} de {total}",
     "placeholderBadge": "Ejemplo ilustrativo",
     "placeholderNotice": "Los proyectos identificados como ejemplos son formatos de referencia y no corresponden a clientes reales.",
     "clientLabel": "Cliente",
@@ -305,7 +318,7 @@
       },
       "duration": {
         "question": "¿Cuánto tarda un proyecto?",
-        "answer": "Depende del alcance y de la complejidad. Una landing page suele ser bastante más rápida que un sistema de gestión con varios módulos. Después del relevamiento te damos una estimación concreta, y si algo cambia durante el proyecto lo conversamos antes."
+        "answer": "Varía según la complejidad del proyecto. Luego de evaluar tus requerimientos en el relevamiento inicial, te presentamos una estimación precisa de plazos antes de comenzar, asegurando entregas en tiempo y forma."
       },
       "payments": {
         "question": "¿Cómo se organizan los pagos?",

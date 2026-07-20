@@ -1,16 +1,14 @@
 import { useTranslations } from "next-intl";
-import { ArrowRight, Check, MapPin } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { Check, MapPin } from "lucide-react";
 import { SECTION_IDS } from "@/config/site";
-import { buttonClasses } from "@/components/ui/button";
-import { BookingCta } from "@/components/shared/booking-cta";
+import { WhatsAppLink } from "@/components/shared/whatsapp-link";
 import { HeroMockup } from "./hero-mockup";
 
 const TRUST_KEYS = ["personal", "quote", "stages", "support"] as const;
 
 export function Hero() {
   const t = useTranslations("hero");
-  const tCta = useTranslations("cta");
+  const tCommon = useTranslations("common");
 
   return (
     <section
@@ -44,34 +42,12 @@ export function Hero() {
               {t("subtitle")}
             </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
-                href={`/#${SECTION_IDS.contact}`}
-                className={buttonClasses("primary", "lg", "group")}
-              >
-                {tCta("primary")}
-                <ArrowRight
-                  aria-hidden="true"
-                  className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                />
-              </Link>
-
-              <Link
-                href={`/#${SECTION_IDS.projects}`}
-                className={buttonClasses("secondary", "lg")}
-              >
-                {tCta("viewWork")}
-              </Link>
-            </div>
-
-            {/* Deliberately quieter than the two buttons above: booking a call
-                is the third conversion priority, not the first. */}
-            <div className="mt-4">
-              <BookingCta
-                label={tCta("call")}
-                variant="ghost"
-                size="sm"
-                className="-ml-2 underline-offset-4 hover:underline"
+            <div className="mt-9 flex">
+              <WhatsAppLink
+                label={t("whatsappCta")}
+                message={t("whatsappMessage")}
+                ariaLabel={`${t("whatsappCta")} ${tCommon("opensInNewTab")}`}
+                size="lg"
               />
             </div>
 

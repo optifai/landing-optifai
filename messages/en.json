@@ -44,7 +44,6 @@
     "budget": "Request a quote",
     "call": "Book a call",
     "whatsapp": "Chat on WhatsApp",
-    "viewWork": "See our work",
     "consult": "Ask about this service"
   },
 
@@ -53,6 +52,8 @@
     "titleLead": "Technology that moves",
     "titleAccent": "your business forward",
     "subtitle": "We build custom systems, landing pages and online stores designed to simplify your operations, bring in new opportunities and grow alongside your company.",
+    "whatsappCta": "Chat with us on WhatsApp",
+    "whatsappMessage": "Hello, I found OptifAI's website and would like to discuss a project.",
     "trust": {
       "personal": "Personal attention",
       "quote": "Free quote",
@@ -74,8 +75,15 @@
 
   "services": {
     "eyebrow": "Services",
-    "title": "Digital solutions for real problems",
+    "title": "Digital solutions for your goals",
     "subtitle": "We start from what your business actually needs to fix: manual work, online presence, sales, and everything in between.",
+    "goalLabel": "Goal",
+    "consultGoal": "Ask about these solutions",
+    "goals": {
+      "sales": "Increase sales",
+      "operations": "Optimize operations",
+      "support": "Ongoing support"
+    },
     "examplesLabel": "A few examples",
     "secondaryTitle": "And everything that comes after",
     "secondarySubtitle": "A project doesn't end at launch. These services cover the day to day.",
@@ -184,11 +192,11 @@
     "steps": {
       "conversation": {
         "name": "First conversation",
-        "description": "You tell us what your business needs and what's slowing it down today. No cost, no commitment."
+        "description": "You tell us what your business needs and which processes you would like to optimize. There is no commitment or cost."
       },
       "discovery": {
         "name": "Discovery and scope",
-        "description": "We review processes, priorities and requirements to pin down exactly what the project covers."
+        "description": "We review processes, priorities, and requirements to clearly define the project's goals and scope."
       },
       "proposal": {
         "name": "Proposal and planning",
@@ -196,11 +204,11 @@
       },
       "build": {
         "name": "Design and development",
-        "description": "We move in stages, with deliverables you can see and comment on while the project takes shape."
+        "description": "We work through structured stages, with defined partial deliveries so you can review and validate the project's progress."
       },
       "launch": {
-        "name": "Testing, launch and support",
-        "description": "We test, fix, publish, and stay involved once everything is live."
+        "name": "Testing, launch, and support",
+        "description": "We perform quality checks, make the agreed adjustments, launch the project, and continue providing post-launch support."
       }
     }
   },
@@ -209,6 +217,11 @@
     "eyebrow": "Projects",
     "title": "Work and project types",
     "subtitle": "Projects published with permission.",
+    "carouselType": "carousel",
+    "carouselLabel": "Project carousel",
+    "previous": "View previous projects",
+    "next": "View next projects",
+    "carouselPosition": "Page {current} of {total}",
     "placeholderBadge": "Illustrative example",
     "placeholderNotice": "Projects identified as examples are reference formats and do not correspond to real clients.",
     "clientLabel": "Client",
@@ -305,7 +318,7 @@
       },
       "duration": {
         "question": "How long does a project take?",
-        "answer": "It depends on scope and complexity. A landing page is usually considerably faster than a management system with several modules. After discovery we give you a concrete estimate, and if anything changes during the project we discuss it first."
+        "answer": "It varies depending on the complexity of the project. After evaluating your requirements during the initial discovery phase, we provide a precise timeline estimate before starting, helping ensure delivery on schedule and as agreed."
       },
       "payments": {
         "question": "How are payments organised?",
