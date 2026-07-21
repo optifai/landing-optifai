@@ -52,7 +52,7 @@
     "titleLead": "Creamos tecnología que",
     "titleAccent": "impulsa tu negocio",
     "subtitle": "Desarrollamos sistemas a medida, landing pages y tiendas online pensadas para simplificar procesos, generar oportunidades y acompañar el crecimiento de tu empresa.",
-    "whatsappCta": "Hablemos por WhatsApp",
+    "whatsappCta": "Consulta Gratis",
     "whatsappMessage": "Hola, vi la web de OptifAI y quisiera consultar sobre un proyecto.",
     "trust": {
       "personal": "Atención personalizada",
@@ -75,8 +75,12 @@
 
   "services": {
     "eyebrow": "Servicios",
-    "title": "Soluciones digitales según tus objetivos",
+    "title": "Soluciones Categorizadas por Objetivos",
     "subtitle": "Trabajamos sobre lo que tu negocio necesita resolver: procesos manuales, presencia online, ventas y todo lo que hay en el medio.",
+    "carouselType": "carrusel",
+    "carouselLabel": "Carrusel de categorías de servicios",
+    "previous": "Ver categorías de servicios anteriores",
+    "next": "Ver categorías de servicios siguientes",
     "goalLabel": "Objetivo",
     "consultGoal": "Consultar por estas soluciones",
     "goals": {
@@ -221,7 +225,6 @@
     "carouselLabel": "Carrusel de proyectos",
     "previous": "Ver proyectos anteriores",
     "next": "Ver proyectos siguientes",
-    "carouselPosition": "Página {current} de {total}",
     "placeholderBadge": "Ejemplo ilustrativo",
     "placeholderNotice": "Los proyectos identificados como ejemplos son formatos de referencia y no corresponden a clientes reales.",
     "clientLabel": "Cliente",

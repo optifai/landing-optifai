@@ -47,6 +47,7 @@ export function Hero() {
                 label={t("whatsappCta")}
                 message={t("whatsappMessage")}
                 ariaLabel={`${t("whatsappCta")} ${tCommon("opensInNewTab")}`}
+                variant="primary"
                 size="lg"
               />
             </div>

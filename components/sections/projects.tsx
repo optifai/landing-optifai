@@ -1,12 +1,9 @@
 "use client";
 
-import * as React from "react";
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import {
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   ExternalLink,
   GitBranch,
   Info,
@@ -17,101 +14,27 @@ import { sortedProjects } from "@/data/projects";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Badge, Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
-import { Button, buttonClasses } from "@/components/ui/button";
+import { buttonClasses } from "@/components/ui/button";
+import {
+  SnapCarouselControls,
+  useSnapCarousel,
+} from "@/components/ui/snap-carousel";
 import { ProjectMockup } from "./project-mockup";
 
 export function Projects() {
   const t = useTranslations("projects");
   const tCta = useTranslations("cta");
   const tCommon = useTranslations("common");
-  const locale = useLocale();
-  const trackRef = React.useRef<HTMLUListElement>(null);
-  const [snapOffsets, setSnapOffsets] = React.useState([0]);
-  const [position, setPosition] = React.useState(0);
+  const {
+    trackRef,
+    syncPosition,
+    handleKeyDown,
+    move,
+    canMovePrevious,
+    canMoveNext,
+  } = useSnapCarousel();
 
   const hasPlaceholders = sortedProjects.some((project) => project.isPlaceholder);
-
-  const recalculate = React.useCallback(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const trackRect = track.getBoundingClientRect();
-    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-    const offsets = Array.from(track.children)
-      .map((slide) => {
-        const slideRect = slide.getBoundingClientRect();
-        const rawOffset = slideRect.left - trackRect.left + track.scrollLeft;
-        return Math.round(Math.min(rawOffset, maxScroll));
-      })
-      .filter((offset, index, all) => index === 0 || offset !== all[index - 1]);
-    const nextOffsets = offsets.length > 0 ? offsets : [0];
-    const nearest = nextOffsets.reduce(
-      (bestIndex, offset, index) =>
-        Math.abs(offset - track.scrollLeft) <
-        Math.abs(nextOffsets[bestIndex] - track.scrollLeft)
-          ? index
-          : bestIndex,
-      0,
-    );
-
-    setSnapOffsets(nextOffsets);
-    setPosition(nearest);
-    track.scrollTo({ left: nextOffsets[nearest], behavior: "auto" });
-  }, []);
-
-  React.useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const frame = window.requestAnimationFrame(recalculate);
-    const resizeObserver = new ResizeObserver(recalculate);
-    resizeObserver.observe(track);
-    Array.from(track.children).forEach((slide) => resizeObserver.observe(slide));
-    window.addEventListener("orientationchange", recalculate);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      resizeObserver.disconnect();
-      window.removeEventListener("orientationchange", recalculate);
-    };
-  }, [locale, recalculate]);
-
-  const syncPosition = React.useCallback(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const nearest = snapOffsets.reduce(
-      (bestIndex, offset, index) =>
-        Math.abs(offset - track.scrollLeft) <
-        Math.abs(snapOffsets[bestIndex] - track.scrollLeft)
-          ? index
-          : bestIndex,
-      0,
-    );
-    setPosition(nearest);
-  }, [snapOffsets]);
-
-  const move = React.useCallback(
-    (direction: -1 | 1) => {
-      const track = trackRef.current;
-      if (!track) return;
-
-      const nextPosition = Math.min(
-        Math.max(position + direction, 0),
-        snapOffsets.length - 1,
-      );
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      setPosition(nextPosition);
-      track.scrollTo({
-        left: snapOffsets[nextPosition],
-        behavior: reduceMotion ? "auto" : "smooth",
-      });
-    },
-    [position, snapOffsets],
-  );
 
   return (
     <Section id={SECTION_IDS.projects} tone="subtle">
@@ -134,7 +57,7 @@ export function Projects() {
       ) : null}
 
       <div
-        className="mt-10"
+        className="relative mt-10"
         role="region"
         aria-roledescription={t("carouselType")}
         aria-label={t("carouselLabel")}
@@ -143,16 +66,7 @@ export function Projects() {
           ref={trackRef}
           tabIndex={0}
           onScroll={syncPosition}
-          onKeyDown={(event) => {
-            if (event.target !== event.currentTarget) return;
-            if (event.key === "ArrowLeft") {
-              event.preventDefault();
-              move(-1);
-            } else if (event.key === "ArrowRight") {
-              event.preventDefault();
-              move(1);
-            }
-          }}
+          onKeyDown={handleKeyDown}
           className="flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {sortedProjects.map((project, index) => {
@@ -287,32 +201,14 @@ export function Projects() {
           })}
         </ul>
 
-        <div className="mt-5 flex items-center justify-between gap-4">
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => move(-1)}
-            disabled={position === 0}
-            aria-label={t("previous")}
-          >
-            <ChevronLeft aria-hidden="true" className="size-4" />
-          </Button>
-          <p className="text-sm font-medium text-fg-muted" aria-live="polite">
-            {t("carouselPosition", {
-              current: position + 1,
-              total: snapOffsets.length,
-            })}
-          </p>
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => move(1)}
-            disabled={position === snapOffsets.length - 1}
-            aria-label={t("next")}
-          >
-            <ChevronRight aria-hidden="true" className="size-4" />
-          </Button>
-        </div>
+        <SnapCarouselControls
+          previousLabel={t("previous")}
+          nextLabel={t("next")}
+          canMovePrevious={canMovePrevious}
+          canMoveNext={canMoveNext}
+          onPrevious={() => move(-1)}
+          onNext={() => move(1)}
+        />
       </div>
 
       <Reveal className="mt-12">

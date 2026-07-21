@@ -52,7 +52,7 @@
     "titleLead": "Technology that moves",
     "titleAccent": "your business forward",
     "subtitle": "We build custom systems, landing pages and online stores designed to simplify your operations, bring in new opportunities and grow alongside your company.",
-    "whatsappCta": "Chat with us on WhatsApp",
+    "whatsappCta": "Free Consultation",
     "whatsappMessage": "Hello, I found OptifAI's website and would like to discuss a project.",
     "trust": {
       "personal": "Personal attention",
@@ -75,8 +75,12 @@
 
   "services": {
     "eyebrow": "Services",
-    "title": "Digital solutions for your goals",
+    "title": "Solutions Categorized by Goals",
     "subtitle": "We start from what your business actually needs to fix: manual work, online presence, sales, and everything in between.",
+    "carouselType": "carousel",
+    "carouselLabel": "Service category carousel",
+    "previous": "View previous service categories",
+    "next": "View next service categories",
     "goalLabel": "Goal",
     "consultGoal": "Ask about these solutions",
     "goals": {
@@ -221,7 +225,6 @@
     "carouselLabel": "Project carousel",
     "previous": "View previous projects",
     "next": "View next projects",
-    "carouselPosition": "Page {current} of {total}",
     "placeholderBadge": "Illustrative example",
     "placeholderNotice": "Projects identified as examples are reference formats and do not correspond to real clients.",
     "clientLabel": "Client",

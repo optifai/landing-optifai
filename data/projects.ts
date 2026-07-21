@@ -38,7 +38,7 @@ export const projects: Project[] = [
     url: "https://platinumjoyas.com/",
     technologies: [],
     featured: false,
-    order: 2,
+    order: 3,
     isPlaceholder: false,
   },
   {
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     image: "/projects/af-functional-training.webp",
     technologies: [],
     featured: false,
-    order: 3,
+    order: 2,
     isPlaceholder: false,
   },
 ];
