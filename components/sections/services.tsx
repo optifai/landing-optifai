@@ -19,6 +19,7 @@ import {
 
 export function Services() {
   const t = useTranslations("services");
+  const carouselLabel = t("carouselLabel");
   const {
     trackRef,
     syncPosition,
@@ -26,7 +27,8 @@ export function Services() {
     move,
     canMovePrevious,
     canMoveNext,
-  } = useSnapCarousel();
+    hasOverflow,
+  } = useSnapCarousel(carouselLabel);
 
   return (
     <Section id={SECTION_IDS.services}>
@@ -37,34 +39,35 @@ export function Services() {
       />
 
       <div
-        className="relative mt-14"
+        className="relative mt-14 min-w-0 max-w-full"
         role="region"
         aria-roledescription={t("carouselType")}
-        aria-label={t("carouselLabel")}
+        aria-label={carouselLabel}
       >
-        <ul
-          ref={trackRef}
-          tabIndex={0}
-          onScroll={syncPosition}
-          onKeyDown={handleKeyDown}
-          className="flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {serviceGoals.map((goal, index) => {
-            const groupedServices = goal.serviceIds.map((serviceId) => {
-              const service = services.find((item) => item.id === serviceId);
-              if (!service) {
-                throw new Error(`Unknown service in goal group: ${serviceId}`);
-              }
-              return service;
-            });
+        <div className="min-w-0 max-w-full overflow-hidden">
+          <ul
+            ref={trackRef}
+            tabIndex={0}
+            onScroll={syncPosition}
+            onKeyDown={handleKeyDown}
+            className="flex min-w-0 max-w-full snap-x snap-mandatory items-start gap-4 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] lg:items-stretch lg:gap-6 [&::-webkit-scrollbar]:hidden"
+          >
+            {serviceGoals.map((goal, index) => {
+              const groupedServices = goal.serviceIds.map((serviceId) => {
+                const service = services.find((item) => item.id === serviceId);
+                if (!service) {
+                  throw new Error(`Unknown service in goal group: ${serviceId}`);
+                }
+                return service;
+              });
 
-            return (
-              <li
-                key={goal.id}
-                className="min-w-0 shrink-0 snap-start basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
-              >
-                <Reveal index={index} className="h-full">
-                  <Card className="flex h-full flex-col p-6 lg:p-7">
+              return (
+                <li
+                  key={goal.id}
+                  className="min-w-0 max-w-full shrink-0 snap-start basis-full sm:basis-[calc((100%-1rem)/1.5)] md:basis-[calc((100%-1rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
+                >
+                <Reveal index={index} className="lg:h-full">
+                  <Card className="flex flex-col p-6 lg:h-full lg:p-7">
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                       {t("goalLabel")}
                     </p>
@@ -112,7 +115,7 @@ export function Services() {
 
                     <Link
                       href={`/#${SECTION_IDS.contact}`}
-                      className="group mt-auto inline-flex items-center gap-1.5 self-start pt-7 text-sm font-semibold text-primary"
+                      className="group mt-7 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-primary lg:mt-auto lg:pt-7"
                     >
                       {t("consultGoal")}
                       <ArrowRight
@@ -125,16 +128,18 @@ export function Services() {
                     </Link>
                   </Card>
                 </Reveal>
-              </li>
-            );
-          })}
-        </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
         <SnapCarouselControls
           previousLabel={t("previous")}
           nextLabel={t("next")}
           canMovePrevious={canMovePrevious}
           canMoveNext={canMoveNext}
+          hasOverflow={hasOverflow}
           onPrevious={() => move(-1)}
           onNext={() => move(1)}
         />

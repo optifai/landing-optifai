@@ -25,6 +25,7 @@ export function Projects() {
   const t = useTranslations("projects");
   const tCta = useTranslations("cta");
   const tCommon = useTranslations("common");
+  const carouselLabel = t("carouselLabel");
   const {
     trackRef,
     syncPosition,
@@ -32,7 +33,8 @@ export function Projects() {
     move,
     canMovePrevious,
     canMoveNext,
-  } = useSnapCarousel();
+    hasOverflow,
+  } = useSnapCarousel(carouselLabel);
 
   const hasPlaceholders = sortedProjects.some((project) => project.isPlaceholder);
 
@@ -57,27 +59,28 @@ export function Projects() {
       ) : null}
 
       <div
-        className="relative mt-10"
+        className="relative mt-10 min-w-0 max-w-full"
         role="region"
         aria-roledescription={t("carouselType")}
-        aria-label={t("carouselLabel")}
+        aria-label={carouselLabel}
       >
-        <ul
-          ref={trackRef}
-          tabIndex={0}
-          onScroll={syncPosition}
-          onKeyDown={handleKeyDown}
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {sortedProjects.map((project, index) => {
-            const base = `items.${project.id}`;
-            const name = t(`${base}.name`);
+        <div className="min-w-0 max-w-full overflow-hidden">
+          <ul
+            ref={trackRef}
+            tabIndex={0}
+            onScroll={syncPosition}
+            onKeyDown={handleKeyDown}
+            className="flex min-w-0 max-w-full snap-x snap-mandatory items-start gap-4 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] lg:items-stretch lg:gap-6 [&::-webkit-scrollbar]:hidden"
+          >
+            {sortedProjects.map((project, index) => {
+              const base = `items.${project.id}`;
+              const name = t(`${base}.name`);
 
-            return (
-              <li
-                key={project.id}
-                className="min-w-0 shrink-0 snap-start basis-[calc(100%-1.25rem)] md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
-              >
+              return (
+                <li
+                  key={project.id}
+                  className="min-w-0 max-w-full shrink-0 snap-start basis-[92%] sm:basis-[calc((100%-1rem)/1.5)] md:basis-[calc((100%-1rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
+                >
                 <Reveal index={index} className="h-full">
                   <Card className="flex h-full flex-col overflow-hidden">
                     <div className="relative aspect-[16/10] border-b border-line bg-gradient-to-br from-surface-2 to-surface p-3">
@@ -196,16 +199,18 @@ export function Projects() {
                     </div>
                   </Card>
                 </Reveal>
-              </li>
-            );
-          })}
-        </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
         <SnapCarouselControls
           previousLabel={t("previous")}
           nextLabel={t("next")}
           canMovePrevious={canMovePrevious}
           canMoveNext={canMoveNext}
+          hasOverflow={hasOverflow}
           onPrevious={() => move(-1)}
           onNext={() => move(1)}
         />
