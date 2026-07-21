@@ -40,9 +40,12 @@ export interface Project {
 export interface Testimonial {
   id: string;
   name: string;
-  role: string;
-  company: string;
-  quote: string;
+  role?: string;
+  company?: string;
+  quote: {
+    es: string;
+    en: string;
+  };
   /** Path under `public/`. */
   photo?: string;
   /** Id of a project in `data/projects.ts`. */

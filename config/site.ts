@@ -69,8 +69,8 @@ export const siteConfig = {
   pending: {
     /** Every published portfolio entry currently represents real work. */
     projectsArePlaceholder: false,
-    /** No real testimonials collected yet. */
-    testimonialsArePlaceholder: true,
+    /** Every published testimonial is real and authorised. */
+    testimonialsArePlaceholder: false,
   },
 } as const;
 

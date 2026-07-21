@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { MessagesSquare } from "lucide-react";
 import { SECTION_IDS } from "@/config/site";
 import { testimonials } from "@/data/testimonials";
@@ -16,6 +16,7 @@ import { Reveal } from "@/components/ui/reveal";
  */
 export function Testimonials() {
   const t = useTranslations("testimonials");
+  const locale = useLocale();
 
   if (testimonials.length === 0) {
     return (
@@ -56,17 +57,20 @@ export function Testimonials() {
                 ) : null}
 
                 <blockquote className="flex-1 text-sm leading-relaxed text-fg-muted">
-                  “{testimonial.quote}”
+                  “{testimonial.quote[locale === "en" ? "en" : "es"]}”
                 </blockquote>
 
                 <footer className="mt-5 border-t border-line pt-4">
                   <p className="text-sm font-semibold text-fg">
                     {testimonial.name}
                   </p>
-                  <p className="text-xs text-fg-subtle">
-                    {testimonial.role}
-                    {testimonial.company ? ` · ${testimonial.company}` : null}
-                  </p>
+                  {testimonial.role || testimonial.company ? (
+                    <p className="text-xs text-fg-subtle">
+                      {testimonial.role}
+                      {testimonial.role && testimonial.company ? " · " : null}
+                      {testimonial.company}
+                    </p>
+                  ) : null}
                 </footer>
               </Card>
             </Reveal>
