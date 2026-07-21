@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Check, MapPin } from "lucide-react";
 import { SECTION_IDS } from "@/config/site";
+import { BookingCta } from "@/components/shared/booking-cta";
 import { WhatsAppLink } from "@/components/shared/whatsapp-link";
 import { HeroMockup } from "./hero-mockup";
 
@@ -8,6 +9,7 @@ const TRUST_KEYS = ["personal", "quote", "stages", "support"] as const;
 
 export function Hero() {
   const t = useTranslations("hero");
+  const tCta = useTranslations("cta");
   const tCommon = useTranslations("common");
 
   return (
@@ -49,6 +51,15 @@ export function Hero() {
                 ariaLabel={`${t("whatsappCta")} ${tCommon("opensInNewTab")}`}
                 variant="primary"
                 size="lg"
+              />
+            </div>
+
+            <div className="mt-4">
+              <BookingCta
+                label={tCta("call")}
+                variant="ghost"
+                size="sm"
+                className="-ml-2 underline-offset-4 hover:underline"
               />
             </div>
 
