@@ -149,6 +149,34 @@
     border-color: var(--line);
   }
 
+  /* Horizontal overflow is clipped on BOTH html and body.
+     Declaring it on body alone does NOT protect the document: `overflow-x:
+     clip` on body clips body's own children, but html stays `visible` and
+     remains horizontally scrollable. Verified — with the rule on body only,
+     appending a 4000px-wide element still let the document pan sideways
+     (scrollX 301 at 390px, 357 at 1440px). That is the reported symptom: the
+     page scrolls right and shows an empty gutter, usually first noticed after
+     swiping a carousel to its last slide.
+
+     Clipping html as well closes that hole for any current or future
+     horizontal rail. `clip` (not `hidden`) is deliberate: it does not turn
+     these elements into scroll containers, so `position: sticky` and smooth
+     anchor scrolling keep working. */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* Engines without `overflow: clip` fall back to `hidden`. This does create a
+     scroll container, which is why it is not the default. */
+  @supports not (overflow: clip) {
+    html,
+    body {
+      overflow-x: hidden;
+    }
+  }
+
   html {
     scroll-behavior: smooth;
     /* Keeps anchored headings clear of the sticky header. */
@@ -160,8 +188,6 @@
     background-color: var(--bg);
     color: var(--fg);
     font-family: var(--font-sans);
-    /* Guards against any child overflowing on very narrow viewports. */
-    overflow-x: clip;
   }
 
   h1,
