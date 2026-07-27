@@ -4,7 +4,7 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import { Menu } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { NAV_SECTIONS, SECTION_IDS, siteConfig } from "@/config/site";
+import { NAV_SECTIONS, SECTION_IDS } from "@/config/site";
 import { buttonClasses } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
 import { cn } from "@/lib/utils";
@@ -144,10 +144,6 @@ export function Header() {
         onClose={() => setMenuOpen(false)}
         triggerRef={menuButtonRef}
       />
-
-      {/* Screen-reader-only company name keeps the accessible page identity
-          stable even though the visual logo is a temporary text mark. */}
-      <span className="sr-only">{siteConfig.name}</span>
     </>
   );
 }

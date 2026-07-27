@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { getTranslations } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
@@ -27,6 +29,11 @@ export default async function OpengraphImage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "hero" });
+  const logoData = await readFile(
+    join(process.cwd(), "public", "images", "logo-sin-fondo.png"),
+    "base64",
+  );
+  const logoSrc = `data:image/png;base64,${logoData}`;
 
   return new ImageResponse(
     (
@@ -42,26 +49,39 @@ export default async function OpengraphImage({
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <div
+          style={{
+            display: "flex",
+            padding: "18px 22px",
+            borderRadius: 20,
+            background: "#ffffff",
+            alignSelf: "flex-start",
+          }}
+        >
           <div
             style={{
-              width: 72,
-              height: 72,
-              borderRadius: 20,
-              background: "linear-gradient(135deg, #3b82f6, #22d3ee)",
+              position: "relative",
               display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 40,
-              fontWeight: 800,
-              color: "#04101f",
-            }}
-          >
-            O
-          </div>
-          <div style={{ display: "flex", fontSize: 40, fontWeight: 700, color: "#ffffff" }}>
-            Optif
-            <span style={{ color: "#22d3ee" }}>AI</span>
+              width: 380,
+              height: 112,
+              overflow: "hidden",
+          }}
+        >
+            {/* ImageResponse renders plain img elements; next/image is not supported here. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={logoSrc}
+              alt=""
+              width={720}
+              height={720}
+              style={{
+                position: "absolute",
+                width: 720,
+                height: 720,
+                left: -171,
+                top: -305,
+              }}
+            />
           </div>
         </div>
 

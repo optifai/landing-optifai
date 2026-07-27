@@ -154,22 +154,17 @@ const CONTACT_EMAIL = "optifaipartnetship@gmail.com";
 
 ---
 
-## 10. Cómo reemplazar el logo
+## 10. Assets de marca
 
-El logo actual es **temporal y basado en texto**. Vive en un solo lugar:
-**`components/shared/logo.tsx`**.
+El uso visual de marca se centraliza en **`components/shared/logo.tsx`**:
 
-Reemplazá el `<span aria-hidden>` que dibuja el cuadrado con la "O" por un
-`<Image>` o un SVG inline. Si el logo definitivo ya incluye el nombre, pasá
-`showWordmark={false}` donde se usa (header y footer) o eliminá el wordmark del
-componente.
-
-También conviene actualizar el favicon:
-
-- `app/icon.svg` — icono de la pestaña del navegador.
+- `public/images/logo-sin-fondo.png` — logotipo horizontal.
+- `public/logo-sin-fondo-original.svg` — isotipo.
+- `app/icon.svg` — favicon generado a partir del isotipo.
 - `public/icon.svg` — copia usada por el manifest (mantené ambos iguales).
-- `app/manifest.ts` — agregá PNG de 192px y 512px para plataformas que no
-  aceptan SVG.
+
+Las imágenes Open Graph y Twitter incorporan el logotipo desde
+`app/[locale]/opengraph-image.tsx`.
 
 ---
 
@@ -338,7 +333,7 @@ Los tres deben pasar sin errores antes de desplegar.
 
 Contenido temporal que hay que reemplazar:
 
-- [ ] **Logo definitivo** (`components/shared/logo.tsx`, `app/icon.svg`,
+- [x] **Logo definitivo** (`components/shared/logo.tsx`, `app/icon.svg`,
       `public/icon.svg`).
 - [ ] **Proyectos reales** — las tres fichas actuales son ejemplos ilustrativos
       etiquetados como tales (`data/projects.ts`).
@@ -374,7 +369,8 @@ app/
     page.tsx              # landing (todas las secciones)
     privacy/ terms/       # páginas legales
     not-found.tsx
-    opengraph-image.tsx   # imagen social generada por idioma
+    opengraph-image.tsx   # imagen Open Graph generada por idioma
+    twitter-image.tsx     # imagen de Twitter generada por idioma
   api/contact/route.ts    # endpoint del formulario
   globals.css             # tokens de diseño + utilidades
   sitemap.ts robots.ts manifest.ts icon.svg

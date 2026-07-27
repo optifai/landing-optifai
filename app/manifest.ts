@@ -16,8 +16,6 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: routing.defaultLocale,
     icons: [
       {
-        // TEMPORARY: single SVG mark. Add 192px and 512px PNGs here once the
-        // final logo exists, for platforms that don't accept SVG icons.
         src: "/icon.svg",
         sizes: "any",
         type: "image/svg+xml",
