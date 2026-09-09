@@ -1,5 +1,5 @@
 import { useFormatter, useTranslations } from "next-intl";
-import { ArrowLeft, Info } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { siteConfig, LEGAL_LAST_UPDATED } from "@/config/site";
 
@@ -11,8 +11,6 @@ interface LegalPageProps {
 
 /**
  * Shared shell for the two legal pages: same structure, different copy.
- * Both documents are first drafts, and say so at the top rather than
- * pretending to be reviewed legal text.
  */
 export function LegalPage({ document, sections }: LegalPageProps) {
   const t = useTranslations(`legal.${document}`);
@@ -40,11 +38,6 @@ export function LegalPage({ document, sections }: LegalPageProps) {
               day: "numeric",
             }),
           })}
-        </p>
-
-        <p className="mt-6 flex items-start gap-2.5 rounded-card border border-line-strong bg-surface-2/70 px-5 py-4 text-sm leading-relaxed text-fg-muted">
-          <Info aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-accent" />
-          {tLegal("reviewNotice")}
         </p>
 
         <p className="mt-8 text-base leading-relaxed text-fg-muted">

@@ -278,9 +278,7 @@
     "eyebrow": "Clients",
     "title": "Clients who have trusted OptifAI",
     "subtitle": "Logos are published only with permission.",
-    "carouselLabel": "Client logos",
-    "emptyTitle": "No client logos published yet",
-    "emptyDescription": "This section is ready to show only real, authorised clients."
+    "carouselLabel": "Client logos"
   },
 
   "about": {
@@ -378,7 +376,7 @@
       "namePlaceholder": "Ana Gómez",
       "email": "Email address",
       "emailPlaceholder": "ana@company.com",
-      "phone": "Mobile number",
+      "phone": "Mobile / phone (optional)",
       "phonePlaceholder": "+595 981 123 456",
       "projectType": "Project type",
       "projectTypePlaceholder": "Choose an option (optional)",
@@ -441,7 +439,6 @@
 
   "legal": {
     "backHome": "Back to home",
-    "reviewNotice": "This text is an initial reference version. It should be reviewed by a legal professional before the site goes live.",
     "lastUpdated": "Last updated: {date}",
     "privacy": {
       "title": "Privacy policy",

@@ -37,12 +37,30 @@ export const contactSchema = z.object({
     .max(FIELD_LIMITS.email, "validation.emailMax")
     .pipe(z.email("validation.emailInvalid")),
 
+  /**
+   * Optional. An omitted, null or blank value normalises to an empty string;
+   * anything actually typed still has to look like a phone number.
+   */
   phone: z
-    .string()
-    .trim()
-    .min(6, "validation.phoneMin")
-    .max(FIELD_LIMITS.phone, "validation.phoneMax")
-    .regex(/^[0-9+()\-.\s]+$/, "validation.phoneInvalid"),
+    .preprocess(
+      (value) =>
+        value == null ? "" : typeof value === "string" ? value.trim() : value,
+      z
+        .string()
+        .refine(
+          (value) => value === "" || value.length >= 6,
+          "validation.phoneMin",
+        )
+        .refine(
+          (value) => value === "" || value.length <= FIELD_LIMITS.phone,
+          "validation.phoneMax",
+        )
+        .refine(
+          (value) => value === "" || /^[0-9+()\-.\s]+$/.test(value),
+          "validation.phoneInvalid",
+        ),
+    )
+    .default(""),
 
   projectType: z
     .union([

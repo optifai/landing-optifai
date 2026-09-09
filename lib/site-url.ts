@@ -7,24 +7,34 @@ import "server-only";
  * resolver server-only prevents that platform variable from leaking into a
  * client bundle.
  */
+
+/**
+ * Production domain. Used when nothing is configured explicitly, so a
+ * production build can never advertise a `*.vercel.app` origin as canonical.
+ */
+export const PRODUCTION_SITE_URL = "https://www.optifai.com.py";
+
 function resolveSiteUrl(): string {
   const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  const vercelProductionUrl =
-    process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+
+  // Preview deployments keep their own origin: their canonicals should point at
+  // themselves rather than claim to be the production site.
+  const isPreviewDeployment =
+    !configuredUrl &&
+    Boolean(process.env.VERCEL_ENV) &&
+    process.env.VERCEL_ENV !== "production";
+  const previewUrl = isPreviewDeployment
+    ? process.env.VERCEL_URL?.trim() ||
+      process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim()
+    : undefined;
 
   const url = configuredUrl
     ? configuredUrl
-    : vercelProductionUrl
-      ? `https://${vercelProductionUrl}`
+    : previewUrl
+      ? `https://${previewUrl}`
       : process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : undefined;
-
-  if (!url) {
-    throw new Error(
-      "Missing site URL. Set NEXT_PUBLIC_SITE_URL for local production builds; Vercel provides VERCEL_PROJECT_PRODUCTION_URL when system environment variables are exposed.",
-    );
-  }
+        : PRODUCTION_SITE_URL;
 
   try {
     const parsedUrl = new URL(url);
