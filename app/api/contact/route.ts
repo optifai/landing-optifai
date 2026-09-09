@@ -43,11 +43,13 @@ function escapeHtml(value: string) {
 
 function buildEmail(data: ContactPayload) {
   const projectType = data.projectType || "—";
+  // Phone is optional; an empty value is rendered as a dash, never as a blank.
+  const phone = data.phone || "—";
 
   const text = [
     `Nombre: ${data.name}`,
     `Email: ${data.email}`,
-    `Celular: ${data.phone}`,
+    `Celular: ${phone}`,
     `Tipo de proyecto: ${projectType}`,
     "",
     "Mensaje:",
@@ -59,7 +61,7 @@ function buildEmail(data: ContactPayload) {
       <h2 style="margin:0 0 16px">Nueva consulta desde el sitio</h2>
       <p style="margin:0 0 4px"><strong>Nombre:</strong> ${escapeHtml(data.name)}</p>
       <p style="margin:0 0 4px"><strong>Email:</strong> ${escapeHtml(data.email)}</p>
-      <p style="margin:0 0 4px"><strong>Celular:</strong> ${escapeHtml(data.phone)}</p>
+      <p style="margin:0 0 4px"><strong>Celular:</strong> ${escapeHtml(phone)}</p>
       <p style="margin:0 0 16px"><strong>Tipo de proyecto:</strong> ${escapeHtml(projectType)}</p>
       <p style="margin:0 0 8px"><strong>Mensaje:</strong></p>
       <p style="margin:0;white-space:pre-wrap">${escapeHtml(data.message)}</p>

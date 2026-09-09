@@ -255,7 +255,6 @@ export function ContactForm() {
         <Field
           id="contact-phone"
           label={t("fields.phone")}
-          required
           error={translateError(errors.phone?.message)}
         >
           {(props) => (

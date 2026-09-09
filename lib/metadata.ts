@@ -33,7 +33,7 @@ interface PageMetadataOptions {
   path?: string;
   title: string;
   description: string;
-  /** Legal pages shouldn't compete with the home page in search results. */
+  /** Set to `false` to keep a page out of the index. Public pages stay `true`. */
   index?: boolean;
 }
 

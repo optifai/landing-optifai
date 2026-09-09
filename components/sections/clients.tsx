@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Building2 } from "lucide-react";
 import { SECTION_IDS } from "@/config/site";
 import { clients } from "@/data/clients";
 import { Section, SectionHeader } from "@/components/ui/section";
@@ -9,25 +8,10 @@ import { Reveal } from "@/components/ui/reveal";
 export function Clients() {
   const t = useTranslations("clients");
 
+  // Nothing to show until real, authorised logos are published: the whole
+  // section is omitted rather than rendering an empty placeholder.
   if (clients.length === 0) {
-    return (
-      <Section id={SECTION_IDS.clients}>
-        <Reveal>
-          <div className="mx-auto flex max-w-2xl flex-col items-center rounded-panel border border-dashed border-line-strong bg-surface px-6 py-12 text-center">
-            <span
-              aria-hidden="true"
-              className="grid size-12 place-items-center rounded-xl bg-surface-2 text-fg-subtle"
-            >
-              <Building2 className="size-5" />
-            </span>
-            <h2 className="mt-5 text-xl">{t("emptyTitle")}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-fg-muted">
-              {t("emptyDescription")}
-            </p>
-          </div>
-        </Reveal>
-      </Section>
-    );
+    return null;
   }
 
   return (

@@ -32,8 +32,6 @@ export async function generateMetadata({
     path: "/privacy",
     title: t("title"),
     description: t("metaDescription"),
-    // Kept out of the index so it never outranks the landing page itself.
-    index: false,
   });
 }
 
